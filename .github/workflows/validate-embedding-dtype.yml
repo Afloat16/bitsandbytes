@@ -1,0 +1,48 @@
+name: Validate quantized embedding dtype conversions
+on:
+  push:
+    branches: [validation/quantized-embedding-dtype-20261112]
+permissions:
+  contents: read
+jobs:
+  native-embeddings:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      BNB_TEST_DEVICE: cpu
+      OMP_NUM_THREADS: "2"
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install native CPU dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python pytest numpy packaging scipy einops "ruff==0.14.3"
+      - name: Compile the repository's CPU extension for AVX2
+        run: |
+          cmake -S . -B build-cpu -DCOMPUTE_BACKEND=cpu -DHAS_AVX512F_FLAG=OFF -DHAS_AVX512BF16_FLAG=OFF
+          cmake --build build-cpu --parallel 2
+      - name: Verify original failures and actual model updates
+        run: .venv/bin/python validation/run_embedding_dtype.py
+      - name: Check changed Python files
+        run: |
+          .venv/bin/ruff check bitsandbytes/nn/modules.py tests/test_modules.py
+          .venv/bin/ruff format --diff bitsandbytes/nn/modules.py tests/test_modules.py
+      - name: Save native evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: embedding-dtype-8b51310726bc
+          path: |
+            before.log
+            before.xml
+            after.log
+            after.xml
+            validation_result.json
