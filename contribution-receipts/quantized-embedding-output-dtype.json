@@ -1,0 +1,41 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "fork": "Afloat16/bitsandbytes",
+  "branch": "fix/quantized-embedding-output-dtype-20261112",
+  "head": "879f512b0d014cb53c3cacb6817803c92e09e75d",
+  "base": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "tree": "9f508a3137a4495d71ec728d6685593c71538701",
+  "title": "Keep quantized embedding output dtype in sync with module conversions",
+  "body": "## Summary\n\nQuantized embeddings store their output dtype when they are constructed. Converting a containing model with `.half()`, `.bfloat16()`, `.float()`, or `.to(dtype=...)` currently leaves that attribute unchanged. An embedding constructed in float32 consequently still returns float32 after the next linear layer has been converted, and the model fails with a dtype mismatch.\n\nAdd a shared embedding base that updates the output dtype after a successful module conversion. The existing 8-bit and 4-bit dequantization paths consume the updated dtype. Packed int8/uint8 weights retain their storage dtype, and the state dictionary format is unchanged.\n\n## Validation\n\n- 15 new native tests cover Embedding8bit, EmbeddingFP4, and EmbeddingNF4, FP16/BF16, conversion before and after quantization, and chained convenience conversions.\n- Real `Sequential(embedding, linear)` models take two SGD steps; outputs, linear gradients, and updated parameters match a floating-point embedding reference built from the dequantized weights.\n- Original source: all 15 new tests fail.\n- Patched source: 77 embedding tests pass, with one existing CPU-unsupported FSDP test skipped.\n- Ruff checks and formatting pass.\n\nThe repository's actual CPU extension was compiled with its CMake CPU backend (AVX2), and loaded with PyTorch 2.14.0+cpu. These results cover default packed int8/uint8 storage; floating-point packed 4-bit storage conversions are a separate existing issue.\n\nExact production head: `879f512b0d014cb53c3cacb6817803c92e09e75d`.\nhttps://github.com/Afloat16/bitsandbytes/actions/runs/43307725418\n",
+  "validation": {
+    "run_id": 43307725418,
+    "url": "https://github.com/Afloat16/bitsandbytes/actions/runs/43307725418",
+    "before": {
+      "new": 15,
+      "failed": 15,
+      "passed": 0
+    },
+    "after": {
+      "new": 15,
+      "existing_passed": 62,
+      "total_passed": 77,
+      "existing_skipped": 1
+    },
+    "status": "success",
+    "runtime": "PyTorch 2.14.0+cpu; source-built bitsandbytes 0.50.3.dev0 CPU AVX2 extension",
+    "native_sha256": "0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687"
+  },
+  "publication": "branch_pushed_pr_creation_blocked",
+  "create_pr_response": {
+    "error": "GitHub API error 403: {\"message\":\"Resource not accessible by integration\",\"documentation_url\":\"https://docs.github.com/rest/pulls/pulls#create-a-pull-request\",\"status\":\"403\"}",
+    "error_code": "FORBIDDEN",
+    "error_data": {
+      "message": "Resource not accessible by integration",
+      "documentation_url": "https://docs.github.com/rest/pulls/pulls#create-a-pull-request",
+      "status": "403"
+    }
+  },
+  "prefilled_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/compare/main...Afloat16:fix/quantized-embedding-output-dtype-20261112?expand=1&title=Keep%20quantized%20embedding%20output%20dtype%20in%20sync%20with%20module%20conversions&body=%23%23%20Summary%0A%0AQuantized%20embeddings%20store%20their%20output%20dtype%20when%20they%20are%20constructed.%20Converting%20a%20containing%20model%20with%20%60.half()%60%2C%20%60.bfloat16()%60%2C%20%60.float()%60%2C%20or%20%60.to(dtype%3D...)%60%20currently%20leaves%20that%20attribute%20unchanged.%20An%20embedding%20constructed%20in%20float32%20consequently%20still%20returns%20float32%20after%20the%20next%20linear%20layer%20has%20been%20converted%2C%20and%20the%20model%20fails%20with%20a%20dtype%20mismatch.%0A%0AAdd%20a%20shared%20embedding%20base%20that%20updates%20the%20output%20dtype%20after%20a%20successful%20module%20conversion.%20The%20existing%208-bit%20and%204-bit%20dequantization%20paths%20consume%20the%20updated%20dtype.%20Packed%20int8%2Fuint8%20weights%20retain%20their%20storage%20dtype%2C%20and%20the%20state%20dictionary%20format%20is%20unchanged.%0A%0A%23%23%20Validation%0A%0A-%2015%20new%20native%20tests%20cover%20Embedding8bit%2C%20EmbeddingFP4%2C%20and%20EmbeddingNF4%2C%20FP16%2FBF16%2C%20conversion%20before%20and%20after%20quantization%2C%20and%20chained%20convenience%20conversions.%0A-%20Real%20%60Sequential(embedding%2C%20linear)%60%20models%20take%20two%20SGD%20steps%3B%20outputs%2C%20linear%20gradients%2C%20and%20updated%20parameters%20match%20a%20floating-point%20embedding%20reference%20built%20from%20the%20dequantized%20weights.%0A-%20Original%20source%3A%20all%2015%20new%20tests%20fail.%0A-%20Patched%20source%3A%2077%20embedding%20tests%20pass%2C%20with%20one%20existing%20CPU-unsupported%20FSDP%20test%20skipped.%0A-%20Ruff%20checks%20and%20formatting%20pass.%0A%0AThe%20repository's%20actual%20CPU%20extension%20was%20compiled%20with%20its%20CMake%20CPU%20backend%20(AVX2)%2C%20and%20loaded%20with%20PyTorch%202.14.0%2Bcpu.%20These%20results%20cover%20default%20packed%20int8%2Fuint8%20storage%3B%20floating-point%20packed%204-bit%20storage%20conversions%20are%20a%20separate%20existing%20issue.%0A%0AExact%20production%20head%3A%20%60879f512b0d014cb53c3cacb6817803c92e09e75d%60.%0Ahttps%3A%2F%2Fgithub.com%2FAfloat16%2Fbitsandbytes%2Factions%2Fruns%2F43307725418%0A",
+  "merged_at": null,
+  "review": "Independent code and test review completed"
+}
