@@ -39,7 +39,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: embedding-dtype-8b51310726bc
+          name: embedding-dtype-879f512b0d01
           path: |
             before.log
             before.xml

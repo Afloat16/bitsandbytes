@@ -8,7 +8,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a616886cacf86701514f0cb1d6be760f967481c0"
-HEAD = "8b51310726bc1321bde5652296bf7010d05f997b"
+HEAD = "879f512b0d014cb53c3cacb6817803c92e09e75d"
 SOURCE = "bitsandbytes/nn/modules.py"
 TESTS = "tests/test_modules.py"
 ROOT = Path.cwd()
