@@ -1,0 +1,47 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "fork": "Afloat16/bitsandbytes",
+  "base": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "branch": "feat/quantized-embedding-checkpoints-20261113",
+  "head": "68fef90cd796dc324d12abb5cbaa3fa7166fa0ae",
+  "title": "Support saving and restoring quantized embedding checkpoints",
+  "body": "## Problem\n\n`Embedding8bit` and `Embedding4bit` currently raise `NotImplementedError` from `state_dict()`. A model containing these frozen quantized embeddings therefore cannot use the normal model/optimizer checkpoint workflow, even when only its downstream layers are trainable.\n\n## Change\n\n- Save INT8 weights with their row scales and FP4/NF4 weights with the existing packed `QuantState` metadata.\n- Restore into fresh or already quantized embedding modules without requantizing the saved values.\n- Preserve the destination parameter object for ordinary copy-based loading, and support `assign=True`, including materializing a meta-initialized embedding.\n- Restore the weight/module quantization-state links, keep copied weights and metadata independent of the input checkpoint, and reject mismatched logical embedding shapes or missing INT8 scales.\n- Replace the previous unsupported-save test with the supported unquantized checkpoint contract.\n\n## Validation\n\nExact production commit: `68fef90cd796dc324d12abb5cbaa3fa7166fa0ae`.\n\n44 new native CPU cases cover INT8/FP4/NF4, both partial and block-aligned row widths, copy/assign modes, fresh and prequantized destinations, FP16/BF16 packed storage, and meta initialization. The model tests train a downstream layer, save model and optimizer states to disk, restore both, and compare the next two SGD steps exactly.\n\nOriginal source: all 44 new cases fail. Patched source: all 44 pass. The existing embedding/Int8Params selection passes 64 tests with one existing unsupported-CPU skip. Ruff and formatting pass for all changed Python files.\n\nNative validation: https://github.com/Afloat16/bitsandbytes/actions/runs/43405757953\n\nThe run compiles the repository's AVX2 CPU extension and uses PyTorch 2.14.0+cpu. The validation concerns checkpoint fidelity and resumed execution; it does not measure GPU throughput.",
+  "publication": "draft_pull_request_created",
+  "pull_request": {
+    "number": 2139,
+    "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2139",
+    "state": "open",
+    "draft": true,
+    "head": "68fef90cd796dc324d12abb5cbaa3fa7166fa0ae",
+    "merged_at": null,
+    "maintainer_can_modify": false
+  },
+  "draft_reason": "Repository limits contributors without write access to five simultaneous non-draft open pull requests; GitHub explicitly permits drafts beyond this limit.",
+  "validation": {
+    "run": 43405757953,
+    "job": 131819592184,
+    "validation_head": "c25570847a227010e95e30223a28511bea4c660a",
+    "new_tests": 44,
+    "baseline_failed": 44,
+    "patched_passed": 44,
+    "existing_passed": 64,
+    "existing_skipped": 1,
+    "status": "success",
+    "ruff": "0.14.3",
+    "torch": "2.14.0+cpu",
+    "native_sha256": "0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687"
+  },
+  "review": "Independent full production diff review passed: parameter identity, assign semantics, state links, checkpoint metadata ownership, and actual continued training.",
+  "deduplication": {
+    "related_prs": [
+      1958,
+      1865,
+      1279,
+      1292
+    ],
+    "distinction": "Existing linear checkpoint loading and original embedding implementation do not implement quantized Embedding8bit/Embedding4bit state_dict save/load."
+  },
+  "scope": "Logical embedding shape and required INT8 scale validation; not a complete validator for corrupted packed byte streams.",
+  "merged_at": null,
+  "counts_for_merged": false
+}
