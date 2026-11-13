@@ -8,7 +8,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a616886cacf86701514f0cb1d6be760f967481c0"
-HEAD = "3d5968010e26902badecb3113e1fed30a0ee9c4e"
+HEAD = "68fef90cd796dc324d12abb5cbaa3fa7166fa0ae"
 SOURCE = "bitsandbytes/nn/modules.py"
 TESTS = "tests/test_embedding_checkpoint.py"
 ROOT = Path.cwd()

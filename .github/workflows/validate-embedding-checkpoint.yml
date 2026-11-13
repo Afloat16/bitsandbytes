@@ -33,13 +33,13 @@ jobs:
         run: .venv/bin/python validation/run_embedding_checkpoint.py
       - name: Check changed Python files
         run: |
-          .venv/bin/ruff check bitsandbytes/nn/modules.py tests/test_embedding_checkpoint.py
-          .venv/bin/ruff format --diff bitsandbytes/nn/modules.py tests/test_embedding_checkpoint.py
+          .venv/bin/ruff check bitsandbytes/nn/modules.py tests/test_embedding_checkpoint.py tests/test_modules.py
+          .venv/bin/ruff format --diff bitsandbytes/nn/modules.py tests/test_embedding_checkpoint.py tests/test_modules.py
       - name: Save native evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: embedding-checkpoint-3d5968010e26
+          name: embedding-checkpoint-68fef90cd796
           path: |
             before.log
             before.xml
