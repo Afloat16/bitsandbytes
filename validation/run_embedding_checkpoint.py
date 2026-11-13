@@ -8,7 +8,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a616886cacf86701514f0cb1d6be760f967481c0"
-HEAD = "165132966f6993af3a93bf0cf54b2212c0363f01"
+HEAD = "27c7605235adc8f1179edb0919a142a4daa27f0b"
 SOURCE = "bitsandbytes/nn/modules.py"
 TESTS = "tests/test_embedding_checkpoint.py"
 ROOT = Path.cwd()
@@ -41,10 +41,10 @@ try:
     before = run("before", "embedding_checkpoint")
 finally:
     (ROOT / SOURCE).write_bytes(fixed)
-assert before == {"tests": 38, "failures": 38, "errors": 0, "skipped": 0, "returncode": 1}, before
+assert before == {"tests": 44, "failures": 44, "errors": 0, "skipped": 0, "returncode": 1}, before
 after = run("after", "embedding_checkpoint")
 assert after["returncode"] == 0 and after["failures"] == after["errors"] == 0, after
-assert after["tests"] - after["skipped"] == 38, after
+assert after["tests"] - after["skipped"] == 44, after
 TESTS = "tests/test_modules.py"
 existing = run("existing", "embedding or int8params")
 assert existing["returncode"] == existing["failures"] == existing["errors"] == 0, existing
