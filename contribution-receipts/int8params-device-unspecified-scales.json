@@ -1,0 +1,34 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "number": 2138,
+  "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2138",
+  "state": "open",
+  "draft": true,
+  "draft_reason": "Repository limit of five simultaneous non-draft open PRs for users without write access",
+  "merged_at": null,
+  "head": "eeaa2f804eda7d04d4326097e6140429b01e247a",
+  "base": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "branch": "fix/int8params-device-unspecified-scales-20261113",
+  "validation_run": 43401310219,
+  "validation_head": "afe06844fde50c86acbb097fda21db60f67bb2c0",
+  "baseline": {
+    "tests": 15,
+    "failures": 12,
+    "errors": 0,
+    "skipped": 0
+  },
+  "patched": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "existing": {
+    "tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "native_sha256": "0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687",
+  "peer_review": "passed"
+}
