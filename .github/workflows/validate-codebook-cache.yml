@@ -1,0 +1,52 @@
+name: Validate CPU codebook cache invalidation
+on:
+  push:
+    branches: [validation/cpu-codebook-cache-invalidation-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu-codebook:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      BNB_TEST_DEVICE: cpu
+      OMP_NUM_THREADS: "2"
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install CPU test dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python pytest numpy packaging scipy einops "ruff==0.14.3" "pre-commit>=3.5,<4"
+      - name: Configure the actual repository CPU extension
+        run: |
+          cmake -S . -B build-cpu -DCOMPUTE_BACKEND=cpu -DHAS_AVX512F_FLAG=OFF -DHAS_AVX512BF16_FLAG=OFF
+      - name: Rebuild both source revisions and verify codebook cache invalidation
+        run: .venv/bin/python .validation/run_codebook_cache.py
+      - name: Run repository hooks on changed source
+        run: |
+          .venv/bin/pre-commit run --files csrc/cpu_ops.cpp tests/test_cpu_codebook_cache.py
+          git diff --exit-code -- csrc/cpu_ops.cpp tests/test_cpu_codebook_cache.py
+          git diff --check
+      - name: Preserve native validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cpu-codebook-cache-evidence
+          path: |
+            before.log
+            before.xml
+            after.log
+            after.xml
+            existing.log
+            existing.xml
+            validation_result.json
+            before_native.json
+            after_native.json

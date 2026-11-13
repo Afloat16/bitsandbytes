@@ -1,0 +1,39 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "fork": "Afloat16/bitsandbytes",
+  "stars": 8538,
+  "archived": false,
+  "default_branch": "main",
+  "base_commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "base_tree": "b624ef19f595f97f77fd099f4244b739908d8e97",
+  "branch": "fix/cpu-codebook-cache-invalidation-20261113",
+  "files": [
+    "csrc/cpu_ops.cpp",
+    "tests/test_cpu_codebook_cache.py"
+  ],
+  "status": "awaiting_native_validation",
+  "novelty": {
+    "classification": "genuinely-new",
+    "actual_patches_read": [
+      1901,
+      1959,
+      1968
+    ],
+    "related_exclusions": {
+      "1901": "Introduces the four-value fingerprint; no complete codebook comparison.",
+      "1959": "ARM NEON optimization retains the same four sampled cache entries.",
+      "1968": "CPU LUT optimization does not invalidate changes to unsampled entries.",
+      "2118": "Known LUT discretization at zero is distinct; exact interior test values avoid that issue."
+    },
+    "all_state_queries": [
+      "codebook cache",
+      "LUT fingerprint",
+      "LUT stale",
+      "LUT"
+    ],
+    "cpp_history_entries": 15,
+    "personal_fork": "15 prior branches reviewed; current task's eight completed fixes and metadata strides are independent."
+  },
+  "scope": "CPU blockwise quantization LUT invalidation when the existing contiguous codebook is modified in place",
+  "commit": "5fa7276f1f2590b7e27419c02ddd05f25b5b1612"
+}
