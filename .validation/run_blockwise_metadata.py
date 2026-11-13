@@ -8,7 +8,7 @@ import sys
 from xml.etree import ElementTree
 
 BASE = "a616886cacf86701514f0cb1d6be760f967481c0"
-HEAD = "229715336ad8ec8a17dd546821843a9909ab5f73"
+HEAD = "11527a20279abe05140c9c154eefedba854acbdb"
 SOURCE = "bitsandbytes/backends/cpu/ops.py"
 TESTS = "tests/test_cpu_blockwise_metadata.py"
 ROOT = Path.cwd()

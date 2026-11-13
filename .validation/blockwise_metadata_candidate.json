@@ -6,7 +6,7 @@
   "default_branch": "main",
   "base_commit": "a616886cacf86701514f0cb1d6be760f967481c0",
   "base_tree": "b624ef19f595f97f77fd099f4244b739908d8e97",
-  "commit": "229715336ad8ec8a17dd546821843a9909ab5f73",
+  "commit": "11527a20279abe05140c9c154eefedba854acbdb",
   "branch": "fix/cpu-blockwise-metadata-strides-20261113",
   "files": [
     "bitsandbytes/backends/cpu/ops.py",
@@ -37,5 +37,6 @@
     ],
     "personal_fork": "15 branches inspected; all eight existing contribution heads/PRs are independent current-task fixes; no prior blockwise metadata-stride repair."
   },
-  "scope": "CPU native 8-bit blockwise codebook and scale inputs, including actual Adam8bit state updates"
+  "scope": "CPU native 8-bit blockwise codebook and scale inputs, including actual Adam8bit state updates",
+  "fixture_refinement": "Initial CI identified unrelated known LUT rounding and unsupported CPU dequantize.out; final tests use exact interior values and supported default dequantization."
 }
