@@ -1,0 +1,86 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "stars": 8538,
+  "archived": false,
+  "default_branch": "main",
+  "fork": "Afloat16/bitsandbytes",
+  "base_commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "merged_at": null,
+  "counts_as_upstream_merged": false,
+  "pr_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2141",
+  "pr_status": "open",
+  "draft": true,
+  "commit": "5fa7276f1f2590b7e27419c02ddd05f25b5b1612",
+  "branch": "fix/cpu-codebook-cache-invalidation-20261113",
+  "title": "Invalidate CPU quantization LUTs for complete codebook changes",
+  "body": "## Problem\n\nThe CPU quantization LUT cache checks the codebook pointer and only four entries: 0, 1, 127 and 255. A caller can update other entries of a valid, sorted, contiguous codebook in place while all four sampled values stay unchanged. The cache then returns the old LUT, so the encoded weights no longer agree with the new codebook saved in QuantState.\n\n## Changes\n\nKeep a complete 256-value codebook snapshot in each cache slot. Reuse a cached LUT only when the pointer and every value match; copy the new snapshot after rebuilding the LUT.\n\nThe four-slot replacement policy, existing locking and LUT quantization algorithm remain unchanged. The snapshots add approximately 4 KB of static storage and compare 256 float values on a pointer match.\n\n## Validation\n\n[Native CPU source builds and regression tests](https://github.com/Afloat16/bitsandbytes/actions/runs/43417110064), source `5fa7276f1f2590b7e27419c02ddd05f25b5b1612`:\n\n- Original C++ source: 15 failed, 6 passed.\n- Patched C++ source: all 21 new cases passed.\n- Existing CPU blockwise and noncontiguous-input coverage: 33 passed, 9 existing CPU skips.\n- Repository pre-commit hooks, including clang-format, and `git diff --check` passed.\n\nThe runner separately rebuilt the original and patched CPU shared libraries with the repository's CMake build, verified different library hashes, and used fresh Python processes for each revision. Environment: Ubuntu 24.04, Python 3.12, PyTorch 2.14.0+cpu.\n\nTests cover FP16/BF16/FP32, two block sizes, changes in either codebook half that preserve the old fingerprint, an independent nearest-code reference, unchanged maps, cache-slot replacement, and actual saved quantized weights used by a linear layer.\n\nThis fixes stale-cache correctness for codebook updates. It does not change LUT approximation, cache concurrency guarantees or GPU kernels, and makes no claim of improved model quality or general speed.\n",
+  "prefilled_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/compare/main...Afloat16:bitsandbytes:fix/cpu-codebook-cache-invalidation-20261113?expand=1&title=Invalidate%20CPU%20quantization%20LUTs%20for%20complete%20codebook%20changes&body=%23%23%20Problem%0A%0AThe%20CPU%20quantization%20LUT%20cache%20checks%20the%20codebook%20pointer%20and%20only%20four%20entries%3A%200%2C%201%2C%20127%20and%20255.%20A%20caller%20can%20update%20other%20entries%20of%20a%20valid%2C%20sorted%2C%20contiguous%20codebook%20in%20place%20while%20all%20four%20sampled%20values%20stay%20unchanged.%20The%20cache%20then%20returns%20the%20old%20LUT%2C%20so%20the%20encoded%20weights%20no%20longer%20agree%20with%20the%20new%20codebook%20saved%20in%20QuantState.%0A%0A%23%23%20Changes%0A%0AKeep%20a%20complete%20256-value%20codebook%20snapshot%20in%20each%20cache%20slot.%20Reuse%20a%20cached%20LUT%20only%20when%20the%20pointer%20and%20every%20value%20match%3B%20copy%20the%20new%20snapshot%20after%20rebuilding%20the%20LUT.%0A%0AThe%20four-slot%20replacement%20policy%2C%20existing%20locking%20and%20LUT%20quantization%20algorithm%20remain%20unchanged.%20The%20snapshots%20add%20approximately%204%20KB%20of%20static%20storage%20and%20compare%20256%20float%20values%20on%20a%20pointer%20match.%0A%0A%23%23%20Validation%0A%0A%5BNative%20CPU%20source%20builds%20and%20regression%20tests%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2Fbitsandbytes%2Factions%2Fruns%2F43417110064)%2C%20source%20%605fa7276f1f2590b7e27419c02ddd05f25b5b1612%60%3A%0A%0A-%20Original%20C%2B%2B%20source%3A%2015%20failed%2C%206%20passed.%0A-%20Patched%20C%2B%2B%20source%3A%20all%2021%20new%20cases%20passed.%0A-%20Existing%20CPU%20blockwise%20and%20noncontiguous-input%20coverage%3A%2033%20passed%2C%209%20existing%20CPU%20skips.%0A-%20Repository%20pre-commit%20hooks%2C%20including%20clang-format%2C%20and%20%60git%20diff%20--check%60%20passed.%0A%0AThe%20runner%20separately%20rebuilt%20the%20original%20and%20patched%20CPU%20shared%20libraries%20with%20the%20repository's%20CMake%20build%2C%20verified%20different%20library%20hashes%2C%20and%20used%20fresh%20Python%20processes%20for%20each%20revision.%20Environment%3A%20Ubuntu%2024.04%2C%20Python%203.12%2C%20PyTorch%202.14.0%2Bcpu.%0A%0ATests%20cover%20FP16%2FBF16%2FFP32%2C%20two%20block%20sizes%2C%20changes%20in%20either%20codebook%20half%20that%20preserve%20the%20old%20fingerprint%2C%20an%20independent%20nearest-code%20reference%2C%20unchanged%20maps%2C%20cache-slot%20replacement%2C%20and%20actual%20saved%20quantized%20weights%20used%20by%20a%20linear%20layer.%0A%0AThis%20fixes%20stale-cache%20correctness%20for%20codebook%20updates.%20It%20does%20not%20change%20LUT%20approximation%2C%20cache%20concurrency%20guarantees%20or%20GPU%20kernels%2C%20and%20makes%20no%20claim%20of%20improved%20model%20quality%20or%20general%20speed.%0A",
+  "novelty": {
+    "classification": "genuinely-new",
+    "actual_patches_read": [
+      1901,
+      1959,
+      1968
+    ],
+    "related_exclusions": {
+      "1901": "Introduces the four-value fingerprint; no complete codebook comparison.",
+      "1959": "ARM NEON optimization retains the same four sampled cache entries.",
+      "1968": "CPU LUT optimization does not invalidate changes to unsampled entries.",
+      "2118": "Known LUT discretization at zero is distinct; exact interior test values avoid that issue."
+    },
+    "all_state_queries": [
+      "codebook cache",
+      "LUT fingerprint",
+      "LUT stale",
+      "LUT"
+    ],
+    "cpp_history_entries": 15,
+    "personal_fork": "15 prior branches reviewed; current task's eight completed fixes and metadata strides are independent."
+  },
+  "validation": {
+    "run_id": 43417110064,
+    "run_url": "https://github.com/Afloat16/bitsandbytes/actions/runs/43417110064",
+    "job_id": 131857675129,
+    "artifact_id": 14032910671,
+    "conclusion": "success",
+    "source_commit": "5fa7276f1f2590b7e27419c02ddd05f25b5b1612",
+    "validation_commit": "b10f3aa8beb11d826f0777505ab7b271b71dc800",
+    "environment": "Ubuntu 24.04; Python 3.12; PyTorch 2.14.0+cpu; official CMake CPU source extension",
+    "before": {
+      "failed": 15,
+      "passed": 6
+    },
+    "after": {
+      "passed": 21
+    },
+    "existing": {
+      "passed": 33,
+      "skipped": 9
+    },
+    "checks": [
+      "repository pre-commit hooks",
+      "git diff --check"
+    ],
+    "original_native_sha256": "0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687",
+    "patched_native_sha256": "81824596423ba3329cd8f9eed7122de9f56ce06267a535a0297edfe0eb52f711"
+  },
+  "source_files": [
+    "csrc/cpu_ops.cpp",
+    "tests/test_cpu_codebook_cache.py"
+  ],
+  "limitations": [
+    "CPU only; no GPU validation.",
+    "Additional complete-codebook comparison and approximately 4 KB static cache storage.",
+    "No change to concurrency guarantees or LUT approximation."
+  ],
+  "draft_reason": "The repository permits at most five open non-draft PRs per contributor; additional contributions are submitted as drafts.",
+  "pr_number": 2141,
+  "publication": {
+    "method": "GitHub browser after connector permission failure",
+    "head_verified": "5fa7276f1f2590b7e27419c02ddd05f25b5b1612",
+    "title_verified": true,
+    "body_verified": true,
+    "maintainer_can_modify": false,
+    "verified_at": "2026-11-13T11:33:01.449Z"
+  }
+}
