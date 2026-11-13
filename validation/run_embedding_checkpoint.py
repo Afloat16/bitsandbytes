@@ -8,12 +8,12 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a616886cacf86701514f0cb1d6be760f967481c0"
-HEAD = "27c7605235adc8f1179edb0919a142a4daa27f0b"
+HEAD = "3d5968010e26902badecb3113e1fed30a0ee9c4e"
 SOURCE = "bitsandbytes/nn/modules.py"
 TESTS = "tests/test_embedding_checkpoint.py"
 ROOT = Path.cwd()
 subprocess.run(["git", "fetch", "--no-tags", "--depth=1", "origin", BASE, HEAD], check=True)
-for path in (SOURCE, TESTS):
+for path in (SOURCE, TESTS, "tests/test_modules.py"):
     assert (ROOT / path).read_bytes() == subprocess.check_output(["git", "show", f"{HEAD}:{path}"])
 import bitsandbytes
 import torch
@@ -49,7 +49,7 @@ TESTS = "tests/test_modules.py"
 existing = run("existing", "embedding or int8params")
 assert existing["returncode"] == existing["failures"] == existing["errors"] == 0, existing
 TESTS = "tests/test_embedding_checkpoint.py"
-for path in (SOURCE, TESTS):
+for path in (SOURCE, TESTS, "tests/test_modules.py"):
     assert (ROOT / path).read_bytes() == subprocess.check_output(["git", "show", f"{HEAD}:{path}"])
 summary = {"head":HEAD, "base":BASE, "torch":torch.__version__, "bitsandbytes":bitsandbytes.__version__,
            "native_library": str(native_path), "native_sha256": hashlib.sha256(native_path.read_bytes()).hexdigest(),
