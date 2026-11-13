@@ -1,0 +1,1589 @@
+﻿2026-11-13T11:24:45.2893146Z Current runner version: '2.338.2'
+2026-11-13T11:24:45.2912148Z ##[group]Runner Image Provisioner
+2026-11-13T11:24:45.2912761Z Hosted Compute Agent
+2026-11-13T11:24:45.2913194Z Version: 20261103.629
+2026-11-13T11:24:45.2913608Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T11:24:45.2914128Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T11:24:45.2914600Z Worker ID: {a5de8415-e94b-4707-a2e7-6885d9abf147}
+2026-11-13T11:24:45.2915027Z Region: centralus
+2026-11-13T11:24:45.2915430Z Cloud: Azure
+2026-11-13T11:24:45.2915775Z ##[endgroup]
+2026-11-13T11:24:45.2916684Z ##[group]Operating System
+2026-11-13T11:24:45.2917061Z Ubuntu
+2026-11-13T11:24:45.2917621Z 24.04.5
+2026-11-13T11:24:45.2917999Z LTS
+2026-11-13T11:24:45.2918336Z ##[endgroup]
+2026-11-13T11:24:45.2918709Z ##[group]Runner Image
+2026-11-13T11:24:45.2919127Z Image: ubuntu-24.04
+2026-11-13T11:24:45.2919485Z Version: 20261111.370.1
+2026-11-13T11:24:45.2920336Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T11:24:45.2921688Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+2026-11-13T11:24:45.2922322Z ##[endgroup]
+2026-11-13T11:24:45.2923063Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T11:24:45.2924398Z Contents: read
+2026-11-13T11:24:45.2924770Z Metadata: read
+2026-11-13T11:24:45.2925261Z ##[endgroup]
+2026-11-13T11:24:45.2926712Z Secret source: Actions
+2026-11-13T11:24:45.2927487Z Cache mode: write
+2026-11-13T11:24:45.2927950Z Prepare workflow directory
+2026-11-13T11:24:45.3199944Z Prepare all required actions
+2026-11-13T11:24:45.3233816Z Getting action download info
+2026-11-13T11:24:45.6028826Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T11:24:45.7242161Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T11:24:45.8210296Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+2026-11-13T11:24:46.3567832Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T11:24:46.5764098Z Complete job name: native-cpu-blockwise
+2026-11-13T11:24:46.6433979Z ##[group]Run actions/checkout@v4
+2026-11-13T11:24:46.6434712Z with:
+2026-11-13T11:24:46.6435160Z   fetch-depth: 3
+2026-11-13T11:24:46.6435693Z   repository: Afloat16/bitsandbytes
+2026-11-13T11:24:46.6440612Z   token: ***
+2026-11-13T11:24:46.6441096Z   ssh-strict: true
+2026-11-13T11:24:46.6441594Z   ssh-user: git
+2026-11-13T11:24:46.6442091Z   persist-credentials: true
+2026-11-13T11:24:46.6442632Z   clean: true
+2026-11-13T11:24:46.6443170Z   sparse-checkout-cone-mode: true
+2026-11-13T11:24:46.6443766Z   fetch-tags: false
+2026-11-13T11:24:46.6444271Z   show-progress: true
+2026-11-13T11:24:46.6444801Z   lfs: false
+2026-11-13T11:24:46.6445293Z   submodules: false
+2026-11-13T11:24:46.6445808Z   set-safe-directory: true
+2026-11-13T11:24:46.6446405Z   allow-unsafe-pr-checkout: false
+2026-11-13T11:24:46.6447212Z env:
+2026-11-13T11:24:46.6447663Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:24:46.6448435Z   OMP_NUM_THREADS: 2
+2026-11-13T11:24:46.6449066Z   PYTHONPATH: .
+2026-11-13T11:24:46.6449756Z ##[endgroup]
+2026-11-13T11:24:46.8777931Z Syncing repository: Afloat16/bitsandbytes
+2026-11-13T11:24:46.8780989Z ##[group]Getting Git version info
+2026-11-13T11:24:46.8782012Z Working directory is '/home/runner/work/bitsandbytes/bitsandbytes'
+2026-11-13T11:24:46.8783652Z [command]/usr/bin/git version
+2026-11-13T11:24:46.8856413Z git version 2.56.1
+2026-11-13T11:24:46.8873150Z ##[endgroup]
+2026-11-13T11:24:46.8884496Z Temporarily overriding HOME='/home/runner/work/_temp/31b34a65-09e2-4a1d-b3d9-89a0c2040736' before making global git config changes
+2026-11-13T11:24:46.8888564Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:24:46.8890838Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/bitsandbytes/bitsandbytes
+2026-11-13T11:24:46.8956124Z Deleting the contents of '/home/runner/work/bitsandbytes/bitsandbytes'
+2026-11-13T11:24:46.8959123Z ##[group]Initializing the repository
+2026-11-13T11:24:46.8962305Z [command]/usr/bin/git init /home/runner/work/bitsandbytes/bitsandbytes
+2026-11-13T11:24:46.9068086Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T11:24:46.9070395Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T11:24:46.9072293Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T11:24:46.9073845Z hint: call:
+2026-11-13T11:24:46.9074717Z hint:
+2026-11-13T11:24:46.9075695Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T11:24:46.9077000Z hint:
+2026-11-13T11:24:46.9078316Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T11:24:46.9080206Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T11:24:46.9081883Z hint:
+2026-11-13T11:24:46.9082813Z hint: 	git branch -m <name>
+2026-11-13T11:24:46.9083766Z hint:
+2026-11-13T11:24:46.9085055Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T11:24:46.9087462Z Initialized empty Git repository in /home/runner/work/bitsandbytes/bitsandbytes/.git/
+2026-11-13T11:24:46.9090323Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/bitsandbytes
+2026-11-13T11:24:46.9133215Z ##[endgroup]
+2026-11-13T11:24:46.9134852Z ##[group]Disabling automatic garbage collection
+2026-11-13T11:24:46.9136184Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T11:24:46.9193064Z ##[endgroup]
+2026-11-13T11:24:46.9194609Z ##[group]Setting up auth
+2026-11-13T11:24:46.9198986Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:24:46.9247567Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:24:46.9597083Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:24:46.9638422Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:24:46.9833453Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:24:46.9871638Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:24:47.0070481Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T11:24:47.0116425Z ##[endgroup]
+2026-11-13T11:24:47.0118120Z ##[group]Fetching the repository
+2026-11-13T11:24:47.0127472Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=3 origin +edead58fb0de6a5af175a41beb17d5616d5c1d07:refs/remotes/origin/validation/cpu-blockwise-metadata-strides-20261113
+2026-11-13T11:24:47.5131412Z From https://github.com/Afloat16/bitsandbytes
+2026-11-13T11:24:47.5133976Z  * [new ref]         edead58fb0de6a5af175a41beb17d5616d5c1d07 -> origin/validation/cpu-blockwise-metadata-strides-20261113
+2026-11-13T11:24:47.5138648Z ##[endgroup]
+2026-11-13T11:24:47.5140309Z ##[group]Determining the checkout info
+2026-11-13T11:24:47.5142050Z ##[endgroup]
+2026-11-13T11:24:47.5143140Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T11:24:47.5212198Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T11:24:47.5252957Z ##[group]Checking out the ref
+2026-11-13T11:24:47.5256651Z [command]/usr/bin/git checkout --progress --force -B validation/cpu-blockwise-metadata-strides-20261113 refs/remotes/origin/validation/cpu-blockwise-metadata-strides-20261113
+2026-11-13T11:24:47.5411051Z Switched to a new branch 'validation/cpu-blockwise-metadata-strides-20261113'
+2026-11-13T11:24:47.5415339Z branch 'validation/cpu-blockwise-metadata-strides-20261113' set up to track 'origin/validation/cpu-blockwise-metadata-strides-20261113'.
+2026-11-13T11:24:47.5486404Z ##[endgroup]
+2026-11-13T11:24:47.5489661Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T11:24:47.5514570Z edead58fb0de6a5af175a41beb17d5616d5c1d07
+2026-11-13T11:24:47.5776830Z ##[group]Run actions/setup-python@v5
+2026-11-13T11:24:47.5777650Z with:
+2026-11-13T11:24:47.5778181Z   python-version: 3.12
+2026-11-13T11:24:47.5778779Z   check-latest: false
+2026-11-13T11:24:47.5783581Z   token: ***
+2026-11-13T11:24:47.5784159Z   update-environment: true
+2026-11-13T11:24:47.5784805Z   allow-prereleases: false
+2026-11-13T11:24:47.5785432Z   freethreaded: false
+2026-11-13T11:24:47.5785991Z env:
+2026-11-13T11:24:47.5786513Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:24:47.5787170Z   OMP_NUM_THREADS: 2
+2026-11-13T11:24:47.5787740Z   PYTHONPATH: .
+2026-11-13T11:24:47.5788281Z ##[endgroup]
+2026-11-13T11:24:47.6772875Z ##[group]Installed versions
+2026-11-13T11:24:47.6866737Z (node:2116) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:24:47.6869228Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:24:47.6870624Z Successfully set up CPython (3.12.16)
+2026-11-13T11:24:47.6872305Z ##[endgroup]
+2026-11-13T11:24:47.7128131Z ##[group]Run astral-sh/setup-uv@v6
+2026-11-13T11:24:47.7128784Z with:
+2026-11-13T11:24:47.7129300Z   activate-environment: false
+2026-11-13T11:24:47.7130071Z   working-directory: /home/runner/work/bitsandbytes/bitsandbytes
+2026-11-13T11:24:47.7131294Z   server-url: https://github.com
+2026-11-13T11:24:47.7139438Z   github-token: ***
+2026-11-13T11:24:47.7140006Z   enable-cache: auto
+2026-11-13T11:24:47.7141437Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-11-13T11:24:47.7143161Z   restore-cache: true
+2026-11-13T11:24:47.7143812Z   save-cache: true
+2026-11-13T11:24:47.7144345Z   prune-cache: true
+2026-11-13T11:24:47.7144966Z   ignore-nothing-to-cache: false
+2026-11-13T11:24:47.7145636Z   ignore-empty-workdir: false
+2026-11-13T11:24:47.7146262Z   add-problem-matchers: true
+2026-11-13T11:24:47.7146836Z env:
+2026-11-13T11:24:47.7147487Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:24:47.7148076Z   OMP_NUM_THREADS: 2
+2026-11-13T11:24:47.7148611Z   PYTHONPATH: .
+2026-11-13T11:24:47.7149250Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:47.7150206Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:24:47.7151154Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:47.7152010Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:47.7152882Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:47.7153774Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:24:47.7154528Z ##[endgroup]
+2026-11-13T11:24:47.8572410Z (node:2124) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:24:47.8574841Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:24:47.8681695Z Trying to find version for uv in: /home/runner/work/bitsandbytes/bitsandbytes/uv.toml
+2026-11-13T11:24:47.8684338Z Could not find file: /home/runner/work/bitsandbytes/bitsandbytes/uv.toml
+2026-11-13T11:24:47.8686897Z Trying to find version for uv in: /home/runner/work/bitsandbytes/bitsandbytes/pyproject.toml
+2026-11-13T11:24:47.8729309Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-11-13T11:24:47.8732276Z Getting latest version from GitHub API...
+2026-11-13T11:24:48.2492843Z manifest-file not provided, reading from local file.
+2026-11-13T11:24:48.2520232Z manifest-file does not contain version 0.13.8, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+2026-11-13T11:24:48.2522082Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.13.8/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-13T11:24:48.5856677Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/21aead13-8321-44c4-86bf-55c0e15f1bd3 -f /home/runner/work/_temp/6f888edf-e782-4519-b319-302e6c8ffb40
+2026-11-13T11:24:49.0172916Z Added /home/runner/.local/bin to the path
+2026-11-13T11:24:49.0174650Z Added /opt/hostedtoolcache/uv/0.13.8/x86_64 to the path
+2026-11-13T11:24:49.0185504Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:24:49.0185828Z Successfully installed uv version 0.13.8
+2026-11-13T11:24:49.0187758Z Searching files using cache dependency glob: /home/runner/work/bitsandbytes/bitsandbytes/**/*requirements*.txt,/home/runner/work/bitsandbytes/bitsandbytes/**/*requirements*.in,/home/runner/work/bitsandbytes/bitsandbytes/**/*constraints*.txt,/home/runner/work/bitsandbytes/bitsandbytes/**/*constraints*.in,/home/runner/work/bitsandbytes/bitsandbytes/**/pyproject.toml,/home/runner/work/bitsandbytes/bitsandbytes/**/uv.lock,/home/runner/work/bitsandbytes/bitsandbytes/**/*.py.lock
+2026-11-13T11:24:49.0417465Z /home/runner/work/bitsandbytes/bitsandbytes/pyproject.toml
+2026-11-13T11:24:49.0443089Z Found 1 files to hash.
+2026-11-13T11:24:49.1478700Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-80fc3f08dabef7d925837b9625d05e3c98fc60f942ee99c11ba386d9b6dd5b7e
+2026-11-13T11:24:49.2612624Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-80fc3f08dabef7d925837b9625d05e3c98fc60f942ee99c11ba386d9b6dd5b7e
+2026-11-13T11:24:49.2773993Z ##[group]Run uv venv .venv
+2026-11-13T11:24:49.2774232Z [36;1muv venv .venv[0m
+2026-11-13T11:24:49.2774572Z [36;1muv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T11:24:49.2775014Z [36;1muv pip install --python .venv/bin/python pytest numpy packaging scipy einops "ruff==0.14.3" "pre-commit>=3.5,<4"[0m
+2026-11-13T11:24:49.2795713Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:24:49.2795888Z env:
+2026-11-13T11:24:49.2796005Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:24:49.2796133Z   OMP_NUM_THREADS: 2
+2026-11-13T11:24:49.2796254Z   PYTHONPATH: .
+2026-11-13T11:24:49.2796414Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:49.2796673Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:24:49.2796917Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:49.2797290Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:49.2797655Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:49.2797901Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:24:49.2798111Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:24:49.2798294Z ##[endgroup]
+2026-11-13T11:24:49.2917053Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python3
+2026-11-13T11:24:49.2917729Z Creating virtual environment at: .venv
+2026-11-13T11:24:49.2921669Z Activate with: .venv/bin/activate
+2026-11-13T11:24:49.7288487Z Resolved 10 packages in 393ms
+2026-11-13T11:24:49.7410096Z Downloading sympy (6.0MiB)
+2026-11-13T11:24:49.7427840Z Downloading networkx (2.0MiB)
+2026-11-13T11:24:49.7436055Z Downloading setuptools (1.2MiB)
+2026-11-13T11:24:49.7438577Z Downloading torch (187.2MiB)
+2026-11-13T11:24:49.7825944Z  Downloaded setuptools
+2026-11-13T11:24:49.8559265Z  Downloaded networkx
+2026-11-13T11:24:49.9252543Z  Downloaded sympy
+2026-11-13T11:24:51.1694754Z  Downloaded torch
+2026-11-13T11:24:51.1698170Z Prepared 10 packages in 1.44s
+2026-11-13T11:24:51.3499858Z Installed 10 packages in 179ms
+2026-11-13T11:24:51.3500196Z  + filelock==4.2.4
+2026-11-13T11:24:51.3500399Z  + fsspec==2026.9.0
+2026-11-13T11:24:51.3500596Z  + jinja2==3.1.6
+2026-11-13T11:24:51.3501012Z  + markupsafe==3.0.3
+2026-11-13T11:24:51.3501141Z  + mpmath==1.3.0
+2026-11-13T11:24:51.3501263Z  + networkx==3.7
+2026-11-13T11:24:51.3501379Z  + setuptools==78.1.0
+2026-11-13T11:24:51.3501508Z  + sympy==1.14.0
+2026-11-13T11:24:51.3501631Z  + torch==2.14.0+cpu
+2026-11-13T11:24:51.3501773Z  + typing-extensions==4.16.0
+2026-11-13T11:24:51.5993019Z Resolved 19 packages in 239ms
+2026-11-13T11:24:51.6425849Z Downloading pygments (1.2MiB)
+2026-11-13T11:24:51.6426211Z Downloading numpy (16.0MiB)
+2026-11-13T11:24:51.6430117Z Downloading virtualenv (5.4MiB)
+2026-11-13T11:24:51.6433271Z Downloading ruff (12.7MiB)
+2026-11-13T11:24:51.6434490Z Downloading scipy (33.7MiB)
+2026-11-13T11:24:51.7182469Z  Downloaded pygments
+2026-11-13T11:24:51.7848657Z  Downloaded virtualenv
+2026-11-13T11:24:51.8616645Z  Downloaded ruff
+2026-11-13T11:24:51.9060707Z  Downloaded numpy
+2026-11-13T11:24:52.0683185Z  Downloaded scipy
+2026-11-13T11:24:52.0685834Z Prepared 18 packages in 468ms
+2026-11-13T11:24:52.0925581Z Installed 18 packages in 23ms
+2026-11-13T11:24:52.0926074Z  + cfgv==3.5.0
+2026-11-13T11:24:52.0926264Z  + distlib==0.4.4
+2026-11-13T11:24:52.0926455Z  + einops==0.8.2
+2026-11-13T11:24:52.0926637Z  + identify==2.6.20
+2026-11-13T11:24:52.0926829Z  + iniconfig==2.3.1
+2026-11-13T11:24:52.0927012Z  + nodeenv==1.12.0
+2026-11-13T11:24:52.0927325Z  + numpy==2.5.4
+2026-11-13T11:24:52.0927495Z  + packaging==26.3
+2026-11-13T11:24:52.0927684Z  + platformdirs==4.14.5
+2026-11-13T11:24:52.0927878Z  + pluggy==1.7.0
+2026-11-13T11:24:52.0928057Z  + pre-commit==3.8.0
+2026-11-13T11:24:52.0928233Z  + pygments==2.21.0
+2026-11-13T11:24:52.0928401Z  + pytest==9.2.0
+2026-11-13T11:24:52.0935080Z  + python-discovery==1.9.5
+2026-11-13T11:24:52.0947955Z  + pyyaml==6.0.3
+2026-11-13T11:24:52.0948104Z  + ruff==0.14.3
+2026-11-13T11:24:52.0948227Z  + scipy==1.18.1
+2026-11-13T11:24:52.0948350Z  + virtualenv==21.15.6
+2026-11-13T11:24:52.1011832Z ##[group]Run cmake -S . -B build-cpu -DCOMPUTE_BACKEND=cpu -DHAS_AVX512F_FLAG=OFF -DHAS_AVX512BF16_FLAG=OFF
+2026-11-13T11:24:52.1012252Z [36;1mcmake -S . -B build-cpu -DCOMPUTE_BACKEND=cpu -DHAS_AVX512F_FLAG=OFF -DHAS_AVX512BF16_FLAG=OFF[0m
+2026-11-13T11:24:52.1012519Z [36;1mcmake --build build-cpu --parallel 2[0m
+2026-11-13T11:24:52.1029465Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:24:52.1029601Z env:
+2026-11-13T11:24:52.1029714Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:24:52.1029835Z   OMP_NUM_THREADS: 2
+2026-11-13T11:24:52.1029958Z   PYTHONPATH: .
+2026-11-13T11:24:52.1030112Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:52.1030348Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:24:52.1030579Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:52.1030788Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:52.1031029Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:52.1031254Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:24:52.1031460Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:24:52.1031630Z ##[endgroup]
+2026-11-13T11:24:53.2038165Z -- The CXX compiler identification is GNU 13.3.0
+2026-11-13T11:24:53.3486737Z -- Detecting CXX compiler ABI info
+2026-11-13T11:24:53.6332903Z -- Detecting CXX compiler ABI info - done
+2026-11-13T11:24:53.6449479Z -- Check for working CXX compiler: /usr/bin/c++ - skipped
+2026-11-13T11:24:53.6503986Z -- Detecting CXX compile features
+2026-11-13T11:24:53.6561537Z -- Detecting CXX compile features - done
+2026-11-13T11:24:53.6809219Z -- Configuring bitsandbytes (Backend: cpu)
+2026-11-13T11:24:53.8469499Z -- Found OpenMP_CXX: -fopenmp (found version "4.5")
+2026-11-13T11:24:53.8471314Z -- Found OpenMP: TRUE (found version "4.5")
+2026-11-13T11:24:55.3795283Z -- Configuring done (2.6s)
+2026-11-13T11:24:55.3819048Z -- Generating done (0.0s)
+2026-11-13T11:24:55.3835194Z -- Build files have been written to: /home/runner/work/bitsandbytes/bitsandbytes/build-cpu
+2026-11-13T11:24:55.3966083Z [ 33%] Building CXX object CMakeFiles/bitsandbytes.dir/csrc/cpu_ops.cpp.o
+2026-11-13T11:24:55.3970547Z [ 66%] Building CXX object CMakeFiles/bitsandbytes.dir/csrc/pythonInterface.cpp.o
+2026-11-13T11:24:56.3406448Z [100%] Linking CXX shared library /home/runner/work/bitsandbytes/bitsandbytes/bitsandbytes/libbitsandbytes_cpu.so
+2026-11-13T11:24:58.1163027Z [100%] Built target bitsandbytes
+2026-11-13T11:24:58.1230239Z ##[group]Run .venv/bin/python .validation/run_blockwise_metadata.py
+2026-11-13T11:24:58.1230704Z [36;1m.venv/bin/python .validation/run_blockwise_metadata.py[0m
+2026-11-13T11:24:58.1253383Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:24:58.1253627Z env:
+2026-11-13T11:24:58.1253808Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:24:58.1254030Z   OMP_NUM_THREADS: 2
+2026-11-13T11:24:58.1254235Z   PYTHONPATH: .
+2026-11-13T11:24:58.1254505Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:58.1254923Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:24:58.1255324Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:58.1255685Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:58.1256045Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:24:58.1256393Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:24:58.1256777Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:24:58.1257065Z ##[endgroup]
+2026-11-13T11:24:58.4760763Z From https://github.com/Afloat16/bitsandbytes
+2026-11-13T11:24:58.4761227Z  * branch            a616886cacf86701514f0cb1d6be760f967481c0 -> FETCH_HEAD
+2026-11-13T11:24:58.4761676Z  * branch            11527a20279abe05140c9c154eefedba854acbdb -> FETCH_HEAD
+2026-11-13T11:25:06.3762217Z Native CPU library: /home/runner/work/bitsandbytes/bitsandbytes/bitsandbytes/libbitsandbytes_cpu.so 0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687
+2026-11-13T11:25:06.3762902Z PyTorch: 2.14.0+cpu bitsandbytes: 0.50.3.dev0
+2026-11-13T11:25:11.2690033Z 
+2026-11-13T11:25:11.2691157Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-64-dtype0] PASSED [  3%]
+2026-11-13T11:25:11.2691937Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-64-dtype1] PASSED [  6%]
+2026-11-13T11:25:11.2692696Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-64-dtype2] PASSED [  9%]
+2026-11-13T11:25:11.2693520Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-128-dtype0] PASSED [ 12%]
+2026-11-13T11:25:11.2694336Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-128-dtype1] PASSED [ 16%]
+2026-11-13T11:25:11.2695111Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-128-dtype2] PASSED [ 19%]
+2026-11-13T11:25:11.2695852Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype0] FAILED [ 22%]
+2026-11-13T11:25:11.2696565Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype1] FAILED [ 25%]
+2026-11-13T11:25:11.2697379Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype2] FAILED [ 29%]
+2026-11-13T11:25:11.2698072Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype0] FAILED [ 32%]
+2026-11-13T11:25:11.2698780Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype1] FAILED [ 35%]
+2026-11-13T11:25:11.2699263Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype2] FAILED [ 38%]
+2026-11-13T11:25:11.2699794Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype0] FAILED [ 41%]
+2026-11-13T11:25:11.2700314Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype1] FAILED [ 45%]
+2026-11-13T11:25:11.2701050Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype2] FAILED [ 48%]
+2026-11-13T11:25:11.2701558Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype0] FAILED [ 51%]
+2026-11-13T11:25:11.2702231Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype1] FAILED [ 54%]
+2026-11-13T11:25:11.2702736Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype2] FAILED [ 58%]
+2026-11-13T11:25:11.2703234Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype0] FAILED [ 61%]
+2026-11-13T11:25:11.2703725Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype1] FAILED [ 64%]
+2026-11-13T11:25:11.2704202Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype2] FAILED [ 67%]
+2026-11-13T11:25:11.2704692Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[offset-dtype0] PASSED [ 70%]
+2026-11-13T11:25:11.2705196Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[offset-dtype1] PASSED [ 74%]
+2026-11-13T11:25:11.2705677Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[offset-dtype2] PASSED [ 77%]
+2026-11-13T11:25:11.2706159Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype0] FAILED [ 80%]
+2026-11-13T11:25:11.2706624Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype1] FAILED [ 83%]
+2026-11-13T11:25:11.2707036Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype2] FAILED [ 87%]
+2026-11-13T11:25:11.2707624Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_explicit_metadata_survives_weight_serialization FAILED [ 90%]
+2026-11-13T11:25:11.2708080Z tests/test_cpu_blockwise_metadata.py::test_cpu_adam8bit_continuation_with_strided_state[code] FAILED [ 93%]
+2026-11-13T11:25:11.2708507Z tests/test_cpu_blockwise_metadata.py::test_cpu_adam8bit_continuation_with_strided_state[scales] FAILED [ 96%]
+2026-11-13T11:25:11.2708934Z tests/test_cpu_blockwise_metadata.py::test_cpu_adam8bit_continuation_with_strided_state[both] FAILED [100%]
+2026-11-13T11:25:11.2709173Z 
+2026-11-13T11:25:11.2709276Z =================================== FAILURES ===================================
+2026-11-13T11:25:11.2709619Z ______ test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype0] _______
+2026-11-13T11:25:11.2709794Z 
+2026-11-13T11:25:11.2709870Z dtype = torch.float16, blocksize = 64, stride = 2
+2026-11-13T11:25:11.2709997Z 
+2026-11-13T11:25:11.2710151Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2710446Z     @pytest.mark.parametrize("blocksize", [64, 128])
+2026-11-13T11:25:11.2710646Z     @pytest.mark.parametrize("stride", [1, 2])
+2026-11-13T11:25:11.2710899Z     def test_cpu_blockwise_quantization_uses_codebook_values(dtype, blocksize, stride):
+2026-11-13T11:25:11.2711176Z         code = torch.linspace(-1.0, 1.0, 256)
+2026-11-13T11:25:11.2711360Z         view, storage = _metadata_view(code, stride)
+2026-11-13T11:25:11.2711541Z         before = storage.clone()
+2026-11-13T11:25:11.2711742Z         # Binary fractions stay away from the LUT discretization boundaries.
+2026-11-13T11:25:11.2712042Z         values = torch.tensor([-1.0, -0.75, -0.5, -0.25, 0.125, 0.5, 0.75, 1.0], dtype=dtype)
+2026-11-13T11:25:11.2712276Z         values = values.repeat(33)[:257]
+2026-11-13T11:25:11.2712534Z         expected_codes, expected_state = F.quantize_blockwise(values, code=code, blocksize=blocksize)
+2026-11-13T11:25:11.2712785Z     
+2026-11-13T11:25:11.2712972Z         actual_codes, state = F.quantize_blockwise(values, code=view, blocksize=blocksize)
+2026-11-13T11:25:11.2713303Z     
+2026-11-13T11:25:11.2713472Z >       torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2713710Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2713875Z E       
+2026-11-13T11:25:11.2714099Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2714286Z E       Greatest absolute difference: 112 at index (4,)
+2026-11-13T11:25:11.2714473Z E       Greatest relative difference: 1.0 at index (1,)
+2026-11-13T11:25:11.2714586Z 
+2026-11-13T11:25:11.2714668Z tests/test_cpu_blockwise_metadata.py:33: AssertionError
+2026-11-13T11:25:11.2714904Z ______ test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype1] _______
+2026-11-13T11:25:11.2715068Z 
+2026-11-13T11:25:11.2715140Z dtype = torch.bfloat16, blocksize = 64, stride = 2
+2026-11-13T11:25:11.2715258Z 
+2026-11-13T11:25:11.2715383Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2715632Z     @pytest.mark.parametrize("blocksize", [64, 128])
+2026-11-13T11:25:11.2715819Z     @pytest.mark.parametrize("stride", [1, 2])
+2026-11-13T11:25:11.2716060Z     def test_cpu_blockwise_quantization_uses_codebook_values(dtype, blocksize, stride):
+2026-11-13T11:25:11.2716296Z         code = torch.linspace(-1.0, 1.0, 256)
+2026-11-13T11:25:11.2716470Z         view, storage = _metadata_view(code, stride)
+2026-11-13T11:25:11.2716638Z         before = storage.clone()
+2026-11-13T11:25:11.2716834Z         # Binary fractions stay away from the LUT discretization boundaries.
+2026-11-13T11:25:11.2717309Z         values = torch.tensor([-1.0, -0.75, -0.5, -0.25, 0.125, 0.5, 0.75, 1.0], dtype=dtype)
+2026-11-13T11:25:11.2717559Z         values = values.repeat(33)[:257]
+2026-11-13T11:25:11.2717807Z         expected_codes, expected_state = F.quantize_blockwise(values, code=code, blocksize=blocksize)
+2026-11-13T11:25:11.2718041Z     
+2026-11-13T11:25:11.2718220Z         actual_codes, state = F.quantize_blockwise(values, code=view, blocksize=blocksize)
+2026-11-13T11:25:11.2718438Z     
+2026-11-13T11:25:11.2718602Z >       torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2718831Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2718989Z E       
+2026-11-13T11:25:11.2719114Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2719290Z E       Greatest absolute difference: 112 at index (4,)
+2026-11-13T11:25:11.2719473Z E       Greatest relative difference: 1.0 at index (1,)
+2026-11-13T11:25:11.2719587Z 
+2026-11-13T11:25:11.2719671Z tests/test_cpu_blockwise_metadata.py:33: AssertionError
+2026-11-13T11:25:11.2719904Z ______ test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype2] _______
+2026-11-13T11:25:11.2720068Z 
+2026-11-13T11:25:11.2720138Z dtype = torch.float32, blocksize = 64, stride = 2
+2026-11-13T11:25:11.2720270Z 
+2026-11-13T11:25:11.2720394Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2720644Z     @pytest.mark.parametrize("blocksize", [64, 128])
+2026-11-13T11:25:11.2720831Z     @pytest.mark.parametrize("stride", [1, 2])
+2026-11-13T11:25:11.2721063Z     def test_cpu_blockwise_quantization_uses_codebook_values(dtype, blocksize, stride):
+2026-11-13T11:25:11.2721301Z         code = torch.linspace(-1.0, 1.0, 256)
+2026-11-13T11:25:11.2721470Z         view, storage = _metadata_view(code, stride)
+2026-11-13T11:25:11.2721635Z         before = storage.clone()
+2026-11-13T11:25:11.2721824Z         # Binary fractions stay away from the LUT discretization boundaries.
+2026-11-13T11:25:11.2722088Z         values = torch.tensor([-1.0, -0.75, -0.5, -0.25, 0.125, 0.5, 0.75, 1.0], dtype=dtype)
+2026-11-13T11:25:11.2722304Z         values = values.repeat(33)[:257]
+2026-11-13T11:25:11.2722552Z         expected_codes, expected_state = F.quantize_blockwise(values, code=code, blocksize=blocksize)
+2026-11-13T11:25:11.2722787Z     
+2026-11-13T11:25:11.2722963Z         actual_codes, state = F.quantize_blockwise(values, code=view, blocksize=blocksize)
+2026-11-13T11:25:11.2723278Z     
+2026-11-13T11:25:11.2723444Z >       torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2723668Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2723825Z E       
+2026-11-13T11:25:11.2724025Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2724201Z E       Greatest absolute difference: 112 at index (4,)
+2026-11-13T11:25:11.2724385Z E       Greatest relative difference: 1.0 at index (1,)
+2026-11-13T11:25:11.2724501Z 
+2026-11-13T11:25:11.2724582Z tests/test_cpu_blockwise_metadata.py:33: AssertionError
+2026-11-13T11:25:11.2724815Z ______ test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype0] ______
+2026-11-13T11:25:11.2724977Z 
+2026-11-13T11:25:11.2725051Z dtype = torch.float16, blocksize = 128, stride = 2
+2026-11-13T11:25:11.2725168Z 
+2026-11-13T11:25:11.2725290Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2725540Z     @pytest.mark.parametrize("blocksize", [64, 128])
+2026-11-13T11:25:11.2725722Z     @pytest.mark.parametrize("stride", [1, 2])
+2026-11-13T11:25:11.2725973Z     def test_cpu_blockwise_quantization_uses_codebook_values(dtype, blocksize, stride):
+2026-11-13T11:25:11.2726216Z         code = torch.linspace(-1.0, 1.0, 256)
+2026-11-13T11:25:11.2726389Z         view, storage = _metadata_view(code, stride)
+2026-11-13T11:25:11.2726558Z         before = storage.clone()
+2026-11-13T11:25:11.2726749Z         # Binary fractions stay away from the LUT discretization boundaries.
+2026-11-13T11:25:11.2727015Z         values = torch.tensor([-1.0, -0.75, -0.5, -0.25, 0.125, 0.5, 0.75, 1.0], dtype=dtype)
+2026-11-13T11:25:11.2727427Z         values = values.repeat(33)[:257]
+2026-11-13T11:25:11.2727808Z         expected_codes, expected_state = F.quantize_blockwise(values, code=code, blocksize=blocksize)
+2026-11-13T11:25:11.2728158Z     
+2026-11-13T11:25:11.2728343Z         actual_codes, state = F.quantize_blockwise(values, code=view, blocksize=blocksize)
+2026-11-13T11:25:11.2728557Z     
+2026-11-13T11:25:11.2728721Z >       torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2728947Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2729105Z E       
+2026-11-13T11:25:11.2729224Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2729397Z E       Greatest absolute difference: 112 at index (4,)
+2026-11-13T11:25:11.2729580Z E       Greatest relative difference: 1.0 at index (1,)
+2026-11-13T11:25:11.2729695Z 
+2026-11-13T11:25:11.2729774Z tests/test_cpu_blockwise_metadata.py:33: AssertionError
+2026-11-13T11:25:11.2730016Z ______ test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype1] ______
+2026-11-13T11:25:11.2730177Z 
+2026-11-13T11:25:11.2730251Z dtype = torch.bfloat16, blocksize = 128, stride = 2
+2026-11-13T11:25:11.2730367Z 
+2026-11-13T11:25:11.2730494Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2730745Z     @pytest.mark.parametrize("blocksize", [64, 128])
+2026-11-13T11:25:11.2730928Z     @pytest.mark.parametrize("stride", [1, 2])
+2026-11-13T11:25:11.2731160Z     def test_cpu_blockwise_quantization_uses_codebook_values(dtype, blocksize, stride):
+2026-11-13T11:25:11.2731396Z         code = torch.linspace(-1.0, 1.0, 256)
+2026-11-13T11:25:11.2731565Z         view, storage = _metadata_view(code, stride)
+2026-11-13T11:25:11.2731733Z         before = storage.clone()
+2026-11-13T11:25:11.2731920Z         # Binary fractions stay away from the LUT discretization boundaries.
+2026-11-13T11:25:11.2732185Z         values = torch.tensor([-1.0, -0.75, -0.5, -0.25, 0.125, 0.5, 0.75, 1.0], dtype=dtype)
+2026-11-13T11:25:11.2732404Z         values = values.repeat(33)[:257]
+2026-11-13T11:25:11.2732649Z         expected_codes, expected_state = F.quantize_blockwise(values, code=code, blocksize=blocksize)
+2026-11-13T11:25:11.2732983Z     
+2026-11-13T11:25:11.2733161Z         actual_codes, state = F.quantize_blockwise(values, code=view, blocksize=blocksize)
+2026-11-13T11:25:11.2733374Z     
+2026-11-13T11:25:11.2733540Z >       torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2733773Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2734063Z E       
+2026-11-13T11:25:11.2734180Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2734357Z E       Greatest absolute difference: 112 at index (4,)
+2026-11-13T11:25:11.2734543Z E       Greatest relative difference: 1.0 at index (1,)
+2026-11-13T11:25:11.2734661Z 
+2026-11-13T11:25:11.2734845Z tests/test_cpu_blockwise_metadata.py:33: AssertionError
+2026-11-13T11:25:11.2735152Z ______ test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype2] ______
+2026-11-13T11:25:11.2735316Z 
+2026-11-13T11:25:11.2735387Z dtype = torch.float32, blocksize = 128, stride = 2
+2026-11-13T11:25:11.2735505Z 
+2026-11-13T11:25:11.2735639Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2735987Z     @pytest.mark.parametrize("blocksize", [64, 128])
+2026-11-13T11:25:11.2736177Z     @pytest.mark.parametrize("stride", [1, 2])
+2026-11-13T11:25:11.2736411Z     def test_cpu_blockwise_quantization_uses_codebook_values(dtype, blocksize, stride):
+2026-11-13T11:25:11.2736723Z         code = torch.linspace(-1.0, 1.0, 256)
+2026-11-13T11:25:11.2736894Z         view, storage = _metadata_view(code, stride)
+2026-11-13T11:25:11.2737060Z         before = storage.clone()
+2026-11-13T11:25:11.2737414Z         # Binary fractions stay away from the LUT discretization boundaries.
+2026-11-13T11:25:11.2737683Z         values = torch.tensor([-1.0, -0.75, -0.5, -0.25, 0.125, 0.5, 0.75, 1.0], dtype=dtype)
+2026-11-13T11:25:11.2737902Z         values = values.repeat(33)[:257]
+2026-11-13T11:25:11.2738232Z         expected_codes, expected_state = F.quantize_blockwise(values, code=code, blocksize=blocksize)
+2026-11-13T11:25:11.2738508Z     
+2026-11-13T11:25:11.2738769Z         actual_codes, state = F.quantize_blockwise(values, code=view, blocksize=blocksize)
+2026-11-13T11:25:11.2739038Z     
+2026-11-13T11:25:11.2739205Z >       torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2739432Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2739655Z E       
+2026-11-13T11:25:11.2739784Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2740033Z E       Greatest absolute difference: 112 at index (4,)
+2026-11-13T11:25:11.2740217Z E       Greatest relative difference: 1.0 at index (1,)
+2026-11-13T11:25:11.2740390Z 
+2026-11-13T11:25:11.2740517Z tests/test_cpu_blockwise_metadata.py:33: AssertionError
+2026-11-13T11:25:11.2740783Z ____ test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype0] _____
+2026-11-13T11:25:11.2741029Z 
+2026-11-13T11:25:11.2741121Z dtype = torch.float16, layout = 'code'
+2026-11-13T11:25:11.2741288Z 
+2026-11-13T11:25:11.2741466Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2741826Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2742175Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2742412Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2742588Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2742796Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2743077Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2743394Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2743723Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2743890Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2744129Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2744624Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2744846Z     
+2026-11-13T11:25:11.2744978Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2745186Z     
+2026-11-13T11:25:11.2745458Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2745672Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2745831Z E       
+2026-11-13T11:25:11.2746023Z E       Mismatched elements: 255 / 257 (99.2%)
+2026-11-13T11:25:11.2746217Z E       Greatest absolute difference: 7.9453125 at index (254,)
+2026-11-13T11:25:11.2746424Z E       Greatest relative difference: inf at index (125,)
+2026-11-13T11:25:11.2746565Z 
+2026-11-13T11:25:11.2746649Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2746965Z ____ test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype1] _____
+2026-11-13T11:25:11.2747303Z 
+2026-11-13T11:25:11.2747367Z dtype = torch.bfloat16, layout = 'code'
+2026-11-13T11:25:11.2747472Z 
+2026-11-13T11:25:11.2747596Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2747878Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2748239Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2748474Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2748648Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2748896Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2749146Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2749469Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2749797Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2749967Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2750202Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2750583Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2750800Z     
+2026-11-13T11:25:11.2750934Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2751107Z     
+2026-11-13T11:25:11.2751316Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2751526Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2751685Z E       
+2026-11-13T11:25:11.2751802Z E       Mismatched elements: 255 / 257 (99.2%)
+2026-11-13T11:25:11.2752060Z E       Greatest absolute difference: 7.9375 at index (254,)
+2026-11-13T11:25:11.2752265Z E       Greatest relative difference: inf at index (127,)
+2026-11-13T11:25:11.2752383Z 
+2026-11-13T11:25:11.2752466Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2752774Z ____ test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype2] _____
+2026-11-13T11:25:11.2752959Z 
+2026-11-13T11:25:11.2753022Z dtype = torch.float32, layout = 'code'
+2026-11-13T11:25:11.2753125Z 
+2026-11-13T11:25:11.2753251Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2753607Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2753878Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2754113Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2754338Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2754524Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2754764Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2755131Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2755488Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2755651Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2755946Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2756343Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2756563Z     
+2026-11-13T11:25:11.2756756Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2756911Z     
+2026-11-13T11:25:11.2757060Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2757475Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2757633Z E       
+2026-11-13T11:25:11.2757752Z E       Mismatched elements: 255 / 257 (99.2%)
+2026-11-13T11:25:11.2757986Z E       Greatest absolute difference: 7.943749904632568 at index (254,)
+2026-11-13T11:25:11.2758249Z E       Greatest relative difference: inf at index (127,)
+2026-11-13T11:25:11.2758371Z 
+2026-11-13T11:25:11.2758453Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2758693Z ___ test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype0] ____
+2026-11-13T11:25:11.2758938Z 
+2026-11-13T11:25:11.2759005Z dtype = torch.float16, layout = 'scales'
+2026-11-13T11:25:11.2759136Z 
+2026-11-13T11:25:11.2759263Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2759607Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2759896Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2760128Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2760327Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2760539Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2760783Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2761137Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2761425Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2761588Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2761818Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2762206Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2762428Z     
+2026-11-13T11:25:11.2762552Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2762761Z     
+2026-11-13T11:25:11.2762932Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2763142Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2763301Z E       
+2026-11-13T11:25:11.2763420Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2763682Z E       Greatest absolute difference: 15.640625 at index (256,)
+2026-11-13T11:25:11.2763895Z E       Greatest relative difference: 0.984375 at index (256,)
+2026-11-13T11:25:11.2764025Z 
+2026-11-13T11:25:11.2764110Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2764434Z ___ test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype1] ____
+2026-11-13T11:25:11.2764602Z 
+2026-11-13T11:25:11.2764666Z dtype = torch.bfloat16, layout = 'scales'
+2026-11-13T11:25:11.2764770Z 
+2026-11-13T11:25:11.2764896Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2765248Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2765514Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2765744Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2766080Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2766245Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2766482Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2766942Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2767343Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2767528Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2767761Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2768112Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2768362Z     
+2026-11-13T11:25:11.2768487Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2768641Z     
+2026-11-13T11:25:11.2768789Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2769089Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2769246Z E       
+2026-11-13T11:25:11.2769363Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2769545Z E       Greatest absolute difference: 15.625 at index (256,)
+2026-11-13T11:25:11.2769833Z E       Greatest relative difference: 0.984375 at index (256,)
+2026-11-13T11:25:11.2769961Z 
+2026-11-13T11:25:11.2770043Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2770300Z ___ test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype2] ____
+2026-11-13T11:25:11.2770533Z 
+2026-11-13T11:25:11.2770596Z dtype = torch.float32, layout = 'scales'
+2026-11-13T11:25:11.2770698Z 
+2026-11-13T11:25:11.2770826Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2771108Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2771452Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2771689Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2771862Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2772094Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2772338Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2772650Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2772899Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2773137Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2773369Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2773678Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2773897Z     
+2026-11-13T11:25:11.2774028Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2774186Z     
+2026-11-13T11:25:11.2774355Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2774617Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2774774Z E       
+2026-11-13T11:25:11.2774895Z E       Mismatched elements: 192 / 257 (74.7%)
+2026-11-13T11:25:11.2775091Z E       Greatest absolute difference: 15.639257431030273 at index (256,)
+2026-11-13T11:25:11.2775329Z E       Greatest relative difference: 0.984375 at index (256,)
+2026-11-13T11:25:11.2775457Z 
+2026-11-13T11:25:11.2775537Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2775863Z ____ test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype0] _____
+2026-11-13T11:25:11.2776064Z 
+2026-11-13T11:25:11.2776157Z dtype = torch.float16, layout = 'both'
+2026-11-13T11:25:11.2776260Z 
+2026-11-13T11:25:11.2776422Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2776943Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2777396Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2777699Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2777951Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2778116Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2778361Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2778673Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2778927Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2779092Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2779329Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2779643Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2779863Z     
+2026-11-13T11:25:11.2779989Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2780148Z     
+2026-11-13T11:25:11.2780301Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2780591Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2780754Z E       
+2026-11-13T11:25:11.2780881Z E       Mismatched elements: 256 / 257 (99.6%)
+2026-11-13T11:25:11.2781069Z E       Greatest absolute difference: 15.640625 at index (256,)
+2026-11-13T11:25:11.2781277Z E       Greatest relative difference: inf at index (127,)
+2026-11-13T11:25:11.2781400Z 
+2026-11-13T11:25:11.2781480Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2781725Z ____ test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype1] _____
+2026-11-13T11:25:11.2781895Z 
+2026-11-13T11:25:11.2781964Z dtype = torch.bfloat16, layout = 'both'
+2026-11-13T11:25:11.2782066Z 
+2026-11-13T11:25:11.2782196Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2782484Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2782760Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2782995Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2783165Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2783330Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2783573Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2783887Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2784136Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2784302Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2784536Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2784842Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2785064Z     
+2026-11-13T11:25:11.2785195Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2785351Z     
+2026-11-13T11:25:11.2785501Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2785714Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2785872Z E       
+2026-11-13T11:25:11.2786003Z E       Mismatched elements: 255 / 257 (99.2%)
+2026-11-13T11:25:11.2786186Z E       Greatest absolute difference: 15.625 at index (256,)
+2026-11-13T11:25:11.2786393Z E       Greatest relative difference: inf at index (127,)
+2026-11-13T11:25:11.2786518Z 
+2026-11-13T11:25:11.2786600Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2786943Z ____ test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype2] _____
+2026-11-13T11:25:11.2787237Z 
+2026-11-13T11:25:11.2787326Z dtype = torch.float32, layout = 'both'
+2026-11-13T11:25:11.2787430Z 
+2026-11-13T11:25:11.2787556Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2787922Z     @pytest.mark.parametrize("layout", ["code", "scales", "both", "offset"])
+2026-11-13T11:25:11.2788195Z     def test_cpu_blockwise_dequantization_reads_strided_metadata(dtype, layout):
+2026-11-13T11:25:11.2788430Z         codes = (torch.arange(257) % 256).to(torch.uint8)
+2026-11-13T11:25:11.2788603Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2788767Z         scales = torch.tensor([1.0, 2.0, 4.0, 8.0, 16.0])
+2026-11-13T11:25:11.2789006Z         code_view, code_storage = _metadata_view(code, 2 if layout in ("code", "both") else 1)
+2026-11-13T11:25:11.2789320Z         scales_view, scale_storage = _metadata_view(scales, 3 if layout in ("scales", "both") else 1)
+2026-11-13T11:25:11.2789572Z         original_code = code_storage.clone()
+2026-11-13T11:25:11.2789736Z         original_scale = scale_storage.clone()
+2026-11-13T11:25:11.2789967Z         state = F.QuantState(absmax=scales_view, code=code_view, blocksize=64, dtype=dtype)
+2026-11-13T11:25:11.2790271Z         expected = (code[codes.long()] * scales.repeat_interleave(64)[: codes.numel()]).to(dtype)
+2026-11-13T11:25:11.2790489Z     
+2026-11-13T11:25:11.2790615Z         actual = F.dequantize_blockwise(codes, state)
+2026-11-13T11:25:11.2790770Z     
+2026-11-13T11:25:11.2790918Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2791128Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2791287Z E       
+2026-11-13T11:25:11.2791406Z E       Mismatched elements: 256 / 257 (99.6%)
+2026-11-13T11:25:11.2791606Z E       Greatest absolute difference: 15.639257431030273 at index (256,)
+2026-11-13T11:25:11.2791821Z E       Greatest relative difference: inf at index (127,)
+2026-11-13T11:25:11.2791945Z 
+2026-11-13T11:25:11.2792025Z tests/test_cpu_blockwise_metadata.py:61: AssertionError
+2026-11-13T11:25:11.2792261Z ______ test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype0] _______
+2026-11-13T11:25:11.2792425Z 
+2026-11-13T11:25:11.2792478Z dtype = torch.float16
+2026-11-13T11:25:11.2792558Z 
+2026-11-13T11:25:11.2792687Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2792963Z     def test_cpu_blockwise_caller_supplied_scale_and_output_views(dtype):
+2026-11-13T11:25:11.2793195Z         values = torch.linspace(-2.0, 3.0, 257, dtype=dtype)
+2026-11-13T11:25:11.2793434Z         expected_codes, expected_state = F.quantize_blockwise(values, blocksize=64)
+2026-11-13T11:25:11.2793664Z         scales, _ = _metadata_view(torch.zeros(5))
+2026-11-13T11:25:11.2793864Z         encoded_storage = torch.full((514,), 173, dtype=torch.uint8)
+2026-11-13T11:25:11.2794093Z         encoded = encoded_storage[::2]
+2026-11-13T11:25:11.2794333Z         actual_codes, state = F.quantize_blockwise(values, absmax=scales, out=encoded, blocksize=64)
+2026-11-13T11:25:11.2794581Z         assert actual_codes is encoded
+2026-11-13T11:25:11.2794735Z         assert state.absmax is scales
+2026-11-13T11:25:11.2794946Z         torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2795218Z         torch.testing.assert_close(scales, expected_state.absmax, rtol=0, atol=0)
+2026-11-13T11:25:11.2795454Z         assert torch.all(encoded_storage[1::2] == 173)
+2026-11-13T11:25:11.2795609Z     
+2026-11-13T11:25:11.2795767Z         expected = F.dequantize_blockwise(expected_codes, expected_state)
+2026-11-13T11:25:11.2795998Z         actual = F.dequantize_blockwise(actual_codes, state)
+2026-11-13T11:25:11.2796172Z     
+2026-11-13T11:25:11.2796322Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2796533Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2796791Z E       
+2026-11-13T11:25:11.2796911Z E       Mismatched elements: 193 / 257 (75.1%)
+2026-11-13T11:25:11.2797219Z E       Greatest absolute difference: 2.73046875 at index (255,)
+2026-11-13T11:25:11.2797456Z E       Greatest relative difference: 0.91650390625 at index (193,)
+2026-11-13T11:25:11.2797591Z 
+2026-11-13T11:25:11.2797762Z tests/test_cpu_blockwise_metadata.py:85: AssertionError
+2026-11-13T11:25:11.2798000Z ______ test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype1] _______
+2026-11-13T11:25:11.2798169Z 
+2026-11-13T11:25:11.2798224Z dtype = torch.bfloat16
+2026-11-13T11:25:11.2798302Z 
+2026-11-13T11:25:11.2798431Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2798710Z     def test_cpu_blockwise_caller_supplied_scale_and_output_views(dtype):
+2026-11-13T11:25:11.2798942Z         values = torch.linspace(-2.0, 3.0, 257, dtype=dtype)
+2026-11-13T11:25:11.2799182Z         expected_codes, expected_state = F.quantize_blockwise(values, blocksize=64)
+2026-11-13T11:25:11.2799420Z         scales, _ = _metadata_view(torch.zeros(5))
+2026-11-13T11:25:11.2799618Z         encoded_storage = torch.full((514,), 173, dtype=torch.uint8)
+2026-11-13T11:25:11.2799812Z         encoded = encoded_storage[::2]
+2026-11-13T11:25:11.2800057Z         actual_codes, state = F.quantize_blockwise(values, absmax=scales, out=encoded, blocksize=64)
+2026-11-13T11:25:11.2800301Z         assert actual_codes is encoded
+2026-11-13T11:25:11.2800452Z         assert state.absmax is scales
+2026-11-13T11:25:11.2800745Z         torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2801018Z         torch.testing.assert_close(scales, expected_state.absmax, rtol=0, atol=0)
+2026-11-13T11:25:11.2801251Z         assert torch.all(encoded_storage[1::2] == 173)
+2026-11-13T11:25:11.2801407Z     
+2026-11-13T11:25:11.2801563Z         expected = F.dequantize_blockwise(expected_codes, expected_state)
+2026-11-13T11:25:11.2801789Z         actual = F.dequantize_blockwise(actual_codes, state)
+2026-11-13T11:25:11.2801960Z     
+2026-11-13T11:25:11.2802115Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2802327Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2802483Z E       
+2026-11-13T11:25:11.2802606Z E       Mismatched elements: 193 / 257 (75.1%)
+2026-11-13T11:25:11.2802791Z E       Greatest absolute difference: 2.734375 at index (255,)
+2026-11-13T11:25:11.2802999Z E       Greatest relative difference: 0.91796875 at index (194,)
+2026-11-13T11:25:11.2803132Z 
+2026-11-13T11:25:11.2803212Z tests/test_cpu_blockwise_metadata.py:85: AssertionError
+2026-11-13T11:25:11.2803449Z ______ test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype2] _______
+2026-11-13T11:25:11.2803614Z 
+2026-11-13T11:25:11.2803667Z dtype = torch.float32
+2026-11-13T11:25:11.2803743Z 
+2026-11-13T11:25:11.2803871Z     @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32])
+2026-11-13T11:25:11.2804148Z     def test_cpu_blockwise_caller_supplied_scale_and_output_views(dtype):
+2026-11-13T11:25:11.2804373Z         values = torch.linspace(-2.0, 3.0, 257, dtype=dtype)
+2026-11-13T11:25:11.2804612Z         expected_codes, expected_state = F.quantize_blockwise(values, blocksize=64)
+2026-11-13T11:25:11.2804846Z         scales, _ = _metadata_view(torch.zeros(5))
+2026-11-13T11:25:11.2805047Z         encoded_storage = torch.full((514,), 173, dtype=torch.uint8)
+2026-11-13T11:25:11.2805242Z         encoded = encoded_storage[::2]
+2026-11-13T11:25:11.2805479Z         actual_codes, state = F.quantize_blockwise(values, absmax=scales, out=encoded, blocksize=64)
+2026-11-13T11:25:11.2805724Z         assert actual_codes is encoded
+2026-11-13T11:25:11.2805916Z         assert state.absmax is scales
+2026-11-13T11:25:11.2806120Z         torch.testing.assert_close(actual_codes, expected_codes, rtol=0, atol=0)
+2026-11-13T11:25:11.2806394Z         torch.testing.assert_close(scales, expected_state.absmax, rtol=0, atol=0)
+2026-11-13T11:25:11.2806727Z         assert torch.all(encoded_storage[1::2] == 173)
+2026-11-13T11:25:11.2806884Z     
+2026-11-13T11:25:11.2807040Z         expected = F.dequantize_blockwise(expected_codes, expected_state)
+2026-11-13T11:25:11.2807409Z         actual = F.dequantize_blockwise(actual_codes, state)
+2026-11-13T11:25:11.2807575Z     
+2026-11-13T11:25:11.2807809Z >       torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+2026-11-13T11:25:11.2808019Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2808177Z E       
+2026-11-13T11:25:11.2808300Z E       Mismatched elements: 193 / 257 (75.1%)
+2026-11-13T11:25:11.2808493Z E       Greatest absolute difference: 2.73046875 at index (255,)
+2026-11-13T11:25:11.2808718Z E       Greatest relative difference: 0.9161206483840942 at index (215,)
+2026-11-13T11:25:11.2808865Z 
+2026-11-13T11:25:11.2808946Z tests/test_cpu_blockwise_metadata.py:85: AssertionError
+2026-11-13T11:25:11.2809187Z ______ test_cpu_blockwise_explicit_metadata_survives_weight_serialization ______
+2026-11-13T11:25:11.2809356Z 
+2026-11-13T11:25:11.2809468Z     def test_cpu_blockwise_explicit_metadata_survives_weight_serialization():
+2026-11-13T11:25:11.2809712Z         weights = torch.linspace(-1.0, 2.0, 512).reshape(32, 16)
+2026-11-13T11:25:11.2809897Z         code = F.create_dynamic_map()
+2026-11-13T11:25:11.2810055Z         code_view, _ = _metadata_view(code)
+2026-11-13T11:25:11.2810272Z         encoded, state = F.quantize_blockwise(weights, code=code_view, blocksize=64)
+2026-11-13T11:25:11.2810507Z         scales_view, _ = _metadata_view(state.absmax)
+2026-11-13T11:25:11.2810675Z         buffer = io.BytesIO()
+2026-11-13T11:25:11.2810889Z         torch.save({"weights": encoded, "code": code_view, "scales": scales_view}, buffer)
+2026-11-13T11:25:11.2811110Z         buffer.seek(0)
+2026-11-13T11:25:11.2811267Z         restored = torch.load(buffer, weights_only=True)
+2026-11-13T11:25:11.2811443Z         actual = F.dequantize_blockwise(
+2026-11-13T11:25:11.2811682Z             restored["weights"], code=restored["code"], absmax=restored["scales"], blocksize=64
+2026-11-13T11:25:11.2811907Z         )
+2026-11-13T11:25:11.2812114Z         reference_codes, reference_state = F.quantize_blockwise(weights, code=code, blocksize=64)
+2026-11-13T11:25:11.2812409Z         expected = F.dequantize_blockwise(reference_codes, reference_state)
+2026-11-13T11:25:11.2812650Z         inputs = torch.linspace(-2.0, 1.0, 48).reshape(3, 16)
+2026-11-13T11:25:11.2812836Z >       torch.testing.assert_close(
+2026-11-13T11:25:11.2813011Z             torch.nn.functional.linear(inputs, actual),
+2026-11-13T11:25:11.2813212Z             torch.nn.functional.linear(inputs, expected),
+2026-11-13T11:25:11.2813390Z             rtol=0,
+2026-11-13T11:25:11.2813512Z             atol=0,
+2026-11-13T11:25:11.2813625Z         )
+2026-11-13T11:25:11.2813759Z E       AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2813923Z E       
+2026-11-13T11:25:11.2814048Z E       Mismatched elements: 96 / 96 (100.0%)
+2026-11-13T11:25:11.2814270Z E       Greatest absolute difference: 45.960670471191406 at index (0, 31)
+2026-11-13T11:25:11.2814525Z E       Greatest relative difference: 117.13944244384766 at index (2, 10)
+2026-11-13T11:25:11.2814665Z 
+2026-11-13T11:25:11.2814753Z tests/test_cpu_blockwise_metadata.py:104: AssertionError
+2026-11-13T11:25:11.2814992Z ___________ test_cpu_adam8bit_continuation_with_strided_state[code] ____________
+2026-11-13T11:25:11.2815152Z 
+2026-11-13T11:25:11.2815200Z metadata = 'code'
+2026-11-13T11:25:11.2815272Z 
+2026-11-13T11:25:11.2815369Z     @pytest.mark.parametrize("metadata", ["code", "scales", "both"])
+2026-11-13T11:25:11.2815602Z     def test_cpu_adam8bit_continuation_with_strided_state(metadata):
+2026-11-13T11:25:11.2815807Z         model = torch.nn.Linear(16, 32, bias=False)
+2026-11-13T11:25:11.2816009Z         reference = torch.nn.Linear(16, 32, bias=False)
+2026-11-13T11:25:11.2816194Z         reference.load_state_dict(model.state_dict())
+2026-11-13T11:25:11.2816429Z         optimizer = bnb.optim.Adam8bit(model.parameters(), lr=0.01, min_8bit_size=0)
+2026-11-13T11:25:11.2816844Z         reference_optimizer = bnb.optim.Adam8bit(reference.parameters(), lr=0.01, min_8bit_size=0)
+2026-11-13T11:25:11.2817229Z         inputs = torch.linspace(-1.0, 1.0, 64).reshape(4, 16)
+2026-11-13T11:25:11.2817604Z         target = torch.linspace(0.5, -0.5, 128).reshape(4, 32)
+2026-11-13T11:25:11.2817800Z         initial = model.weight.detach().clone()
+2026-11-13T11:25:11.2817965Z         for step in range(4):
+2026-11-13T11:25:11.2818168Z             for network, opt in ((model, optimizer), (reference, reference_optimizer)):
+2026-11-13T11:25:11.2818385Z                 opt.zero_grad()
+2026-11-13T11:25:11.2818576Z                 torch.nn.functional.mse_loss(network(inputs), target).backward()
+2026-11-13T11:25:11.2818779Z                 opt.step()
+2026-11-13T11:25:11.2818978Z >           torch.testing.assert_close(model.weight, reference.weight, rtol=0, atol=0)
+2026-11-13T11:25:11.2819223Z E           AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2819388Z E           
+2026-11-13T11:25:11.2819514Z E           Mismatched elements: 512 / 512 (100.0%)
+2026-11-13T11:25:11.2819723Z E           Greatest absolute difference: 0.1136237382888794 at index (27, 10)
+2026-11-13T11:25:11.2819977Z E           Greatest relative difference: 44.48076629638672 at index (10, 5)
+2026-11-13T11:25:11.2820121Z 
+2026-11-13T11:25:11.2820205Z tests/test_cpu_blockwise_metadata.py:127: AssertionError
+2026-11-13T11:25:11.2820442Z __________ test_cpu_adam8bit_continuation_with_strided_state[scales] ___________
+2026-11-13T11:25:11.2820606Z 
+2026-11-13T11:25:11.2820656Z metadata = 'scales'
+2026-11-13T11:25:11.2820731Z 
+2026-11-13T11:25:11.2820829Z     @pytest.mark.parametrize("metadata", ["code", "scales", "both"])
+2026-11-13T11:25:11.2821075Z     def test_cpu_adam8bit_continuation_with_strided_state(metadata):
+2026-11-13T11:25:11.2821283Z         model = torch.nn.Linear(16, 32, bias=False)
+2026-11-13T11:25:11.2821606Z         reference = torch.nn.Linear(16, 32, bias=False)
+2026-11-13T11:25:11.2821877Z         reference.load_state_dict(model.state_dict())
+2026-11-13T11:25:11.2822315Z         optimizer = bnb.optim.Adam8bit(model.parameters(), lr=0.01, min_8bit_size=0)
+2026-11-13T11:25:11.2822728Z         reference_optimizer = bnb.optim.Adam8bit(reference.parameters(), lr=0.01, min_8bit_size=0)
+2026-11-13T11:25:11.2823134Z         inputs = torch.linspace(-1.0, 1.0, 64).reshape(4, 16)
+2026-11-13T11:25:11.2823482Z         target = torch.linspace(0.5, -0.5, 128).reshape(4, 32)
+2026-11-13T11:25:11.2823770Z         initial = model.weight.detach().clone()
+2026-11-13T11:25:11.2824044Z         for step in range(4):
+2026-11-13T11:25:11.2824346Z             for network, opt in ((model, optimizer), (reference, reference_optimizer)):
+2026-11-13T11:25:11.2824680Z                 opt.zero_grad()
+2026-11-13T11:25:11.2867626Z                 torch.nn.functional.mse_loss(network(inputs), target).backward()
+2026-11-13T11:25:11.2867971Z                 opt.step()
+2026-11-13T11:25:11.2868290Z >           torch.testing.assert_close(model.weight, reference.weight, rtol=0, atol=0)
+2026-11-13T11:25:11.2868647Z E           AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2868901Z E           
+2026-11-13T11:25:11.2869084Z E           Mismatched elements: 256 / 512 (50.0%)
+2026-11-13T11:25:11.2869409Z E           Greatest absolute difference: 0.008915826678276062 at index (21, 12)
+2026-11-13T11:25:11.2869778Z E           Greatest relative difference: 51.36171340942383 at index (19, 15)
+2026-11-13T11:25:11.2869996Z 
+2026-11-13T11:25:11.2870120Z tests/test_cpu_blockwise_metadata.py:127: AssertionError
+2026-11-13T11:25:11.2870461Z ___________ test_cpu_adam8bit_continuation_with_strided_state[both] ____________
+2026-11-13T11:25:11.2870696Z 
+2026-11-13T11:25:11.2870765Z metadata = 'both'
+2026-11-13T11:25:11.2870867Z 
+2026-11-13T11:25:11.2871007Z     @pytest.mark.parametrize("metadata", ["code", "scales", "both"])
+2026-11-13T11:25:11.2871365Z     def test_cpu_adam8bit_continuation_with_strided_state(metadata):
+2026-11-13T11:25:11.2871993Z         model = torch.nn.Linear(16, 32, bias=False)
+2026-11-13T11:25:11.2872271Z         reference = torch.nn.Linear(16, 32, bias=False)
+2026-11-13T11:25:11.2872554Z         reference.load_state_dict(model.state_dict())
+2026-11-13T11:25:11.2873034Z         optimizer = bnb.optim.Adam8bit(model.parameters(), lr=0.01, min_8bit_size=0)
+2026-11-13T11:25:11.2873525Z         reference_optimizer = bnb.optim.Adam8bit(reference.parameters(), lr=0.01, min_8bit_size=0)
+2026-11-13T11:25:11.2873964Z         inputs = torch.linspace(-1.0, 1.0, 64).reshape(4, 16)
+2026-11-13T11:25:11.2874294Z         target = torch.linspace(0.5, -0.5, 128).reshape(4, 32)
+2026-11-13T11:25:11.2874600Z         initial = model.weight.detach().clone()
+2026-11-13T11:25:11.2874866Z         for step in range(4):
+2026-11-13T11:25:11.2875188Z             for network, opt in ((model, optimizer), (reference, reference_optimizer)):
+2026-11-13T11:25:11.2875539Z                 opt.zero_grad()
+2026-11-13T11:25:11.2875865Z                 torch.nn.functional.mse_loss(network(inputs), target).backward()
+2026-11-13T11:25:11.2876171Z                 opt.step()
+2026-11-13T11:25:11.2876461Z >           torch.testing.assert_close(model.weight, reference.weight, rtol=0, atol=0)
+2026-11-13T11:25:11.2876809Z E           AssertionError: Tensor-likes are not equal!
+2026-11-13T11:25:11.2876968Z E           
+2026-11-13T11:25:11.2877253Z E           Mismatched elements: 512 / 512 (100.0%)
+2026-11-13T11:25:11.2877501Z E           Greatest absolute difference: 0.09796380996704102 at index (10, 11)
+2026-11-13T11:25:11.2877749Z E           Greatest relative difference: 57.642486572265625 at index (19, 15)
+2026-11-13T11:25:11.2877896Z 
+2026-11-13T11:25:11.2877985Z tests/test_cpu_blockwise_metadata.py:127: AssertionError
+2026-11-13T11:25:11.2878189Z ==================================== PASSES ====================================
+2026-11-13T11:25:11.2878443Z -- generated xml file: /home/runner/work/bitsandbytes/bitsandbytes/before.xml --
+2026-11-13T11:25:11.2878759Z ========================= 22 failed, 9 passed in 2.20s =========================
+2026-11-13T11:25:11.2878935Z 
+2026-11-13T11:25:11.2879588Z before {'tests': 31, 'failures': 22, 'errors': 0, 'skipped': 0, 'returncode': 1, 'failed_functions': ['test_cpu_adam8bit_continuation_with_strided_state', 'test_cpu_blockwise_caller_supplied_scale_and_output_views', 'test_cpu_blockwise_dequantization_reads_strided_metadata', 'test_cpu_blockwise_explicit_metadata_survives_weight_serialization', 'test_cpu_blockwise_quantization_uses_codebook_values']}
+2026-11-13T11:25:15.6790087Z 
+2026-11-13T11:25:15.6790937Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-64-dtype0] PASSED [  3%]
+2026-11-13T11:25:15.6791664Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-64-dtype1] PASSED [  6%]
+2026-11-13T11:25:15.6792325Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-64-dtype2] PASSED [  9%]
+2026-11-13T11:25:15.6793088Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-128-dtype0] PASSED [ 12%]
+2026-11-13T11:25:15.6793785Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-128-dtype1] PASSED [ 16%]
+2026-11-13T11:25:15.6794422Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[1-128-dtype2] PASSED [ 19%]
+2026-11-13T11:25:15.6794861Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype0] PASSED [ 22%]
+2026-11-13T11:25:15.6795263Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype1] PASSED [ 25%]
+2026-11-13T11:25:15.6795659Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-64-dtype2] PASSED [ 29%]
+2026-11-13T11:25:15.6796113Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype0] PASSED [ 32%]
+2026-11-13T11:25:15.6797304Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype1] PASSED [ 35%]
+2026-11-13T11:25:15.6797783Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_quantization_uses_codebook_values[2-128-dtype2] PASSED [ 38%]
+2026-11-13T11:25:15.6798352Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype0] PASSED [ 41%]
+2026-11-13T11:25:15.6798819Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype1] PASSED [ 45%]
+2026-11-13T11:25:15.6799270Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[code-dtype2] PASSED [ 48%]
+2026-11-13T11:25:15.6799747Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype0] PASSED [ 51%]
+2026-11-13T11:25:15.6800184Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype1] PASSED [ 54%]
+2026-11-13T11:25:15.6800626Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[scales-dtype2] PASSED [ 58%]
+2026-11-13T11:25:15.6801063Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype0] PASSED [ 61%]
+2026-11-13T11:25:15.6801520Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype1] PASSED [ 64%]
+2026-11-13T11:25:15.6801946Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[both-dtype2] PASSED [ 67%]
+2026-11-13T11:25:15.6802372Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[offset-dtype0] PASSED [ 70%]
+2026-11-13T11:25:15.6802822Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[offset-dtype1] PASSED [ 74%]
+2026-11-13T11:25:15.6803343Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_dequantization_reads_strided_metadata[offset-dtype2] PASSED [ 77%]
+2026-11-13T11:25:15.6803824Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype0] PASSED [ 80%]
+2026-11-13T11:25:15.6804296Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype1] PASSED [ 83%]
+2026-11-13T11:25:15.6804745Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_caller_supplied_scale_and_output_views[dtype2] PASSED [ 87%]
+2026-11-13T11:25:15.6805174Z tests/test_cpu_blockwise_metadata.py::test_cpu_blockwise_explicit_metadata_survives_weight_serialization PASSED [ 90%]
+2026-11-13T11:25:15.6805594Z tests/test_cpu_blockwise_metadata.py::test_cpu_adam8bit_continuation_with_strided_state[code] PASSED [ 93%]
+2026-11-13T11:25:15.6806059Z tests/test_cpu_blockwise_metadata.py::test_cpu_adam8bit_continuation_with_strided_state[scales] PASSED [ 96%]
+2026-11-13T11:25:15.6806495Z tests/test_cpu_blockwise_metadata.py::test_cpu_adam8bit_continuation_with_strided_state[both] PASSED [100%]
+2026-11-13T11:25:15.6806718Z 
+2026-11-13T11:25:15.6806812Z ==================================== PASSES ====================================
+2026-11-13T11:25:15.6807080Z -- generated xml file: /home/runner/work/bitsandbytes/bitsandbytes/after.xml ---
+2026-11-13T11:25:15.6807567Z ============================== 31 passed in 2.12s ==============================
+2026-11-13T11:25:15.6807724Z 
+2026-11-13T11:25:15.6807888Z after {'tests': 31, 'failures': 0, 'errors': 0, 'skipped': 0, 'returncode': 0, 'failed_functions': []}
+2026-11-13T11:25:22.0368949Z 
+2026-11-13T11:25:22.0369769Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[64-dtype=fp16-cpu] SKIPPED [  2%]
+2026-11-13T11:25:22.0370493Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[64-dtype=bf16-cpu] SKIPPED [  4%]
+2026-11-13T11:25:22.0371199Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[64-dtype=fp32-cpu] SKIPPED [  7%]
+2026-11-13T11:25:22.0372299Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[128-dtype=fp16-cpu] SKIPPED [  9%]
+2026-11-13T11:25:22.0373087Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[128-dtype=bf16-cpu] SKIPPED [ 11%]
+2026-11-13T11:25:22.0374026Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[128-dtype=fp32-cpu] SKIPPED [ 14%]
+2026-11-13T11:25:22.0374695Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[256-dtype=fp16-cpu] PASSED [ 16%]
+2026-11-13T11:25:22.0375137Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[256-dtype=bf16-cpu] PASSED [ 19%]
+2026-11-13T11:25:22.0375597Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[256-dtype=fp32-cpu] PASSED [ 21%]
+2026-11-13T11:25:22.0376047Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[512-dtype=fp16-cpu] SKIPPED [ 23%]
+2026-11-13T11:25:22.0376612Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[512-dtype=bf16-cpu] SKIPPED [ 26%]
+2026-11-13T11:25:22.0377394Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_quantize_blockwise[512-dtype=fp32-cpu] SKIPPED [ 28%]
+2026-11-13T11:25:22.0378017Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[64-dtype=fp16-cpu] PASSED [ 30%]
+2026-11-13T11:25:22.0378576Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[64-dtype=bf16-cpu] PASSED [ 33%]
+2026-11-13T11:25:22.0379124Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[64-dtype=fp32-cpu] PASSED [ 35%]
+2026-11-13T11:25:22.0379767Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[128-dtype=fp16-cpu] PASSED [ 38%]
+2026-11-13T11:25:22.0380402Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[128-dtype=bf16-cpu] PASSED [ 40%]
+2026-11-13T11:25:22.0381170Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[128-dtype=fp32-cpu] PASSED [ 42%]
+2026-11-13T11:25:22.0381753Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[256-dtype=fp16-cpu] PASSED [ 45%]
+2026-11-13T11:25:22.0382329Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[256-dtype=bf16-cpu] PASSED [ 47%]
+2026-11-13T11:25:22.0382919Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[256-dtype=fp32-cpu] PASSED [ 50%]
+2026-11-13T11:25:22.0383515Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[512-dtype=fp16-cpu] PASSED [ 52%]
+2026-11-13T11:25:22.0384124Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[512-dtype=bf16-cpu] PASSED [ 54%]
+2026-11-13T11:25:22.0384730Z tests/test_ops.py::TestInt8BlockwiseQuantOps::test_dequantize_blockwise[512-dtype=fp32-cpu] PASSED [ 57%]
+2026-11-13T11:25:22.0385371Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[64-dtype=fp16-cpu] PASSED [ 59%]
+2026-11-13T11:25:22.0386032Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[64-dtype=bf16-cpu] PASSED [ 61%]
+2026-11-13T11:25:22.0386679Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[64-dtype=fp32-cpu] PASSED [ 64%]
+2026-11-13T11:25:22.0387437Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[128-dtype=fp16-cpu] PASSED [ 66%]
+2026-11-13T11:25:22.0388073Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[128-dtype=bf16-cpu] PASSED [ 69%]
+2026-11-13T11:25:22.0388711Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[128-dtype=fp32-cpu] PASSED [ 71%]
+2026-11-13T11:25:22.0389346Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[256-dtype=fp16-cpu] PASSED [ 73%]
+2026-11-13T11:25:22.0389990Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[256-dtype=bf16-cpu] PASSED [ 76%]
+2026-11-13T11:25:22.0390647Z tests/test_ops.py::TestNonContiguousInputs::test_quantize_blockwise_non_contiguous[256-dtype=fp32-cpu] PASSED [ 78%]
+2026-11-13T11:25:22.0391465Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[64-dtype=fp16-cpu] PASSED [ 80%]
+2026-11-13T11:25:22.0392205Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[64-dtype=bf16-cpu] PASSED [ 83%]
+2026-11-13T11:25:22.0392847Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[64-dtype=fp32-cpu] PASSED [ 85%]
+2026-11-13T11:25:22.0393500Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[128-dtype=fp16-cpu] PASSED [ 88%]
+2026-11-13T11:25:22.0394162Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[128-dtype=bf16-cpu] PASSED [ 90%]
+2026-11-13T11:25:22.0394809Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[128-dtype=fp32-cpu] PASSED [ 92%]
+2026-11-13T11:25:22.0395512Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[256-dtype=fp16-cpu] PASSED [ 95%]
+2026-11-13T11:25:22.0396179Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[256-dtype=bf16-cpu] PASSED [ 97%]
+2026-11-13T11:25:22.0396838Z tests/test_ops.py::TestNonContiguousInputs::test_dequantize_blockwise_non_contiguous[256-dtype=fp32-cpu] PASSED [100%]
+2026-11-13T11:25:22.0397675Z 
+2026-11-13T11:25:22.0397803Z ==================================== PASSES ====================================
+2026-11-13T11:25:22.0398196Z ____ TestInt8BlockwiseQuantOps.test_quantize_blockwise[256-dtype=fp16-cpu] _____
+2026-11-13T11:25:22.0398641Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0398896Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0399070Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0399234Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0399400Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0399575Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0399750Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0399936Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0400101Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0400260Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0400428Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0400597Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0400758Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0400921Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0401077Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0401233Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0401389Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0401547Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0401715Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0401887Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0402061Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0402224Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0402380Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0402550Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0402739Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0402915Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0403078Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0403237Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0403395Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0403557Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0403715Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0403872Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0404029Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0404188Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0404468Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0404628Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0404791Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0404949Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0405105Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0405348Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0405506Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0405672Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0405850Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0406051Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0406232Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0406408Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0406615Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0406780Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0406945Z DEBUG    torch.__trace:structured.py:28 
+2026-11-13T11:25:22.0407268Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0407472Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0407639Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0407816Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0407992Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0408151Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0408311Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0408479Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0408658Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0408838Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0409011Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0409186Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0409351Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0409513Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0409746Z ____ TestInt8BlockwiseQuantOps.test_quantize_blockwise[256-dtype=bf16-cpu] _____
+2026-11-13T11:25:22.0410041Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0410280Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0410464Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0410637Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0410794Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0410953Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0411125Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0411304Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0411482Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0411658Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0411834Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0412006Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0412167Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0412329Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0412511Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0412683Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0412843Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0413002Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0413169Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0413346Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0413531Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0413705Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0413873Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0414037Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0414198Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0414434Z ____ TestInt8BlockwiseQuantOps.test_quantize_blockwise[256-dtype=fp32-cpu] _____
+2026-11-13T11:25:22.0414822Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0415034Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0415206Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0415374Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0415603Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0415752Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0415910Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0416081Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0416252Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0416419Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0416583Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0416743Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0416891Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0417059Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0417371Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0417532Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0417679Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0417834Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0418000Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0418169Z DEBUG    torch.__trace:symbolic_shapes.py:8465 
+2026-11-13T11:25:22.0418342Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0418509Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0418675Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0418836Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0418990Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0419210Z ____ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[64-dtype=fp16-cpu] ____
+2026-11-13T11:25:22.0419483Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0419699Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0419879Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0420055Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0420224Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0420376Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0420521Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0420676Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0420845Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0421012Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0421175Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0421325Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0421481Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0421661Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0421836Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0421995Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0422140Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0422286Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0422440Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0422610Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0422773Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0422929Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0423079Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0423292Z ____ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[64-dtype=bf16-cpu] ____
+2026-11-13T11:25:22.0423559Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0423770Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0423942Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0424113Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0424380Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0424525Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0424673Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0424827Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0425073Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0425237Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0425400Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0425552Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0425711Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0425884Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0426058Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0426217Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0426365Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0426514Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0426675Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0426838Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0427003Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0427298Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0427451Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0427670Z ____ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[64-dtype=fp32-cpu] ____
+2026-11-13T11:25:22.0427937Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0428151Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0428324Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0428499Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0428662Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0428812Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0428959Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0429121Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0429286Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0429453Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0429611Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0429760Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0429924Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0430099Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0430270Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0430433Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0430579Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0430725Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0430881Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0431048Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0431211Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0431371Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0431546Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0431761Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[128-dtype=fp16-cpu] ____
+2026-11-13T11:25:22.0432033Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0432248Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0432423Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0432595Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0432758Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0432906Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0433053Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0433212Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0433384Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0433553Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0433716Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0433965Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0434124Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0434297Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0434466Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0434708Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0434857Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0435007Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0435161Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0435324Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0435487Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0435645Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0435794Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0436010Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[128-dtype=bf16-cpu] ____
+2026-11-13T11:25:22.0436274Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0436486Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0436661Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0436833Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0436995Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0437315Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0437462Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0437616Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0437780Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0437943Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0438100Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0438250Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0438410Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0438582Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0438755Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0438917Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0439063Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0439208Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0439363Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0439529Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0439693Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0439855Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0440006Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0440219Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[128-dtype=fp32-cpu] ____
+2026-11-13T11:25:22.0440479Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0440687Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0440859Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0441030Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0441189Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0441336Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0441481Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0441637Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0441803Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0441964Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0442123Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0442271Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0442430Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0442600Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0442772Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0442933Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0443082Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0443227Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0445197Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0445435Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0445676Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0445907Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0446126Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0446557Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[256-dtype=fp16-cpu] ____
+2026-11-13T11:25:22.0446959Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0447467Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0447736Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0447987Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0448225Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0448451Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0448671Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0448912Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0449159Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0449412Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0449656Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0449889Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0450133Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0450393Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0450653Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0450898Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0451118Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0451333Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0451560Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0451804Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0451971Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0452135Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0452286Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0452503Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[256-dtype=bf16-cpu] ____
+2026-11-13T11:25:22.0452771Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0452988Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0453160Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0453332Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0453494Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0453644Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0453793Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0453948Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0454112Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0454276Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0454437Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0454587Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0454744Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0454918Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0455088Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0455252Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0455400Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0455548Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0455701Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0455866Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0456028Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0456188Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0456338Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0456551Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[256-dtype=fp32-cpu] ____
+2026-11-13T11:25:22.0456999Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0457437Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0457698Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0457956Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0458297Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0458494Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0458639Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0458794Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0458958Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0459121Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0459280Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0459429Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0459586Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0459756Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0459933Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0460095Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0460243Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0460388Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0460544Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0460714Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0460881Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0461039Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0461189Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0461403Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[512-dtype=fp16-cpu] ____
+2026-11-13T11:25:22.0461665Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0461875Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0462048Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0462221Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0462382Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0462533Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0462678Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0462832Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0463000Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0463163Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0463320Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0463468Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0463625Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0463796Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0463966Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0464128Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0464274Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0464421Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0464589Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0464751Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0464915Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0465072Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0465224Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0465434Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[512-dtype=bf16-cpu] ____
+2026-11-13T11:25:22.0465700Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0465908Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0466078Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0466247Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0466408Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0466555Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0466700Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0466953Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0467252Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0467435Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0467597Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0467834Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0467993Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0468164Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0468334Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0468494Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0468640Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0468786Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0468939Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0469105Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0469268Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0469428Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0469577Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0469787Z ___ TestInt8BlockwiseQuantOps.test_dequantize_blockwise[512-dtype=fp32-cpu] ____
+2026-11-13T11:25:22.0470050Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:25:22.0470262Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0470434Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0470605Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0470768Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0470917Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0471062Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0471214Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0471378Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0471541Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0471701Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0471849Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0472004Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0472176Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0472349Z DEBUG    torch.__trace:symbolic_shapes.py:5971 
+2026-11-13T11:25:22.0472514Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0472663Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0472808Z DEBUG    torch.__trace:utils.py:2363 
+2026-11-13T11:25:22.0472961Z DEBUG    torch.__trace:graph_capture.py:428 
+2026-11-13T11:25:22.0473123Z DEBUG    torch.__trace:graph_capture.py:446 
+2026-11-13T11:25:22.0473287Z DEBUG    torch.__trace:graph_compile.py:382 
+2026-11-13T11:25:22.0473443Z DEBUG    torch.__trace:codegen.py:200 
+2026-11-13T11:25:22.0473593Z DEBUG    torch.__trace:utils.py:2363
+2026-11-13T11:25:22.0473808Z - generated xml file: /home/runner/work/bitsandbytes/bitsandbytes/existing.xml -
+2026-11-13T11:25:22.0474079Z ================= 33 passed, 9 skipped, 36 deselected in 3.97s =================
+2026-11-13T11:25:22.0474223Z 
+2026-11-13T11:25:22.0474431Z existing {'tests': 42, 'failures': 0, 'errors': 0, 'skipped': 9, 'returncode': 0, 'failed_functions': []}
+2026-11-13T11:25:22.0474667Z {
+2026-11-13T11:25:22.0474809Z   "base": "a616886cacf86701514f0cb1d6be760f967481c0",
+2026-11-13T11:25:22.0475000Z   "head": "11527a20279abe05140c9c154eefedba854acbdb",
+2026-11-13T11:25:22.0475169Z   "torch": "2.14.0+cpu",
+2026-11-13T11:25:22.0475306Z   "bitsandbytes": "0.50.3.dev0",
+2026-11-13T11:25:22.0475561Z   "native_library": "/home/runner/work/bitsandbytes/bitsandbytes/bitsandbytes/libbitsandbytes_cpu.so",
+2026-11-13T11:25:22.0475889Z   "native_sha256": "0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687",
+2026-11-13T11:25:22.0476110Z   "before": {
+2026-11-13T11:25:22.0476222Z     "tests": 31,
+2026-11-13T11:25:22.0476336Z     "failures": 22,
+2026-11-13T11:25:22.0476450Z     "errors": 0,
+2026-11-13T11:25:22.0476658Z     "skipped": 0,
+2026-11-13T11:25:22.0476775Z     "returncode": 1,
+2026-11-13T11:25:22.0476899Z     "failed_functions": [
+2026-11-13T11:25:22.0477059Z       "test_cpu_adam8bit_continuation_with_strided_state",
+2026-11-13T11:25:22.0477406Z       "test_cpu_blockwise_caller_supplied_scale_and_output_views",
+2026-11-13T11:25:22.0477714Z       "test_cpu_blockwise_dequantization_reads_strided_metadata",
+2026-11-13T11:25:22.0477956Z       "test_cpu_blockwise_explicit_metadata_survives_weight_serialization",
+2026-11-13T11:25:22.0478190Z       "test_cpu_blockwise_quantization_uses_codebook_values"
+2026-11-13T11:25:22.0478361Z     ]
+2026-11-13T11:25:22.0478461Z   },
+2026-11-13T11:25:22.0478563Z   "after": {
+2026-11-13T11:25:22.0478669Z     "tests": 31,
+2026-11-13T11:25:22.0478779Z     "failures": 0,
+2026-11-13T11:25:22.0478891Z     "errors": 0,
+2026-11-13T11:25:22.0479005Z     "skipped": 0,
+2026-11-13T11:25:22.0479120Z     "returncode": 0,
+2026-11-13T11:25:22.0479243Z     "failed_functions": []
+2026-11-13T11:25:22.0479369Z   },
+2026-11-13T11:25:22.0479474Z   "existing": {
+2026-11-13T11:25:22.0479586Z     "tests": 42,
+2026-11-13T11:25:22.0479695Z     "failures": 0,
+2026-11-13T11:25:22.0479804Z     "errors": 0,
+2026-11-13T11:25:22.0479913Z     "skipped": 9,
+2026-11-13T11:25:22.0480025Z     "returncode": 0,
+2026-11-13T11:25:22.0480147Z     "failed_functions": []
+2026-11-13T11:25:22.0480271Z   }
+2026-11-13T11:25:22.0480372Z }
+2026-11-13T11:25:23.0511022Z ##[group]Run .venv/bin/pre-commit run --files bitsandbytes/backends/cpu/ops.py tests/test_cpu_blockwise_metadata.py
+2026-11-13T11:25:23.0511484Z [36;1m.venv/bin/pre-commit run --files bitsandbytes/backends/cpu/ops.py tests/test_cpu_blockwise_metadata.py[0m
+2026-11-13T11:25:23.0511872Z [36;1mgit diff --exit-code -- bitsandbytes/backends/cpu/ops.py tests/test_cpu_blockwise_metadata.py[0m
+2026-11-13T11:25:23.0512134Z [36;1mgit diff --check[0m
+2026-11-13T11:25:23.0528970Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:25:23.0529111Z env:
+2026-11-13T11:25:23.0529239Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:25:23.0529365Z   OMP_NUM_THREADS: 2
+2026-11-13T11:25:23.0529485Z   PYTHONPATH: .
+2026-11-13T11:25:23.0529645Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:23.0529887Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:25:23.0530126Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:23.0530362Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:23.0530589Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:23.0530803Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:25:23.0531011Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:25:23.0531179Z ##[endgroup]
+2026-11-13T11:25:23.2724715Z [INFO] Initializing environment for https://github.com/astral-sh/ruff-pre-commit.
+2026-11-13T11:25:23.5817437Z [INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-11-13T11:25:23.9433563Z [INFO] Initializing environment for https://github.com/crate-ci/typos.
+2026-11-13T11:25:25.8307323Z [INFO] Initializing environment for https://github.com/pre-commit/mirrors-clang-format.
+2026-11-13T11:25:26.3453014Z [INFO] Installing environment for https://github.com/astral-sh/ruff-pre-commit.
+2026-11-13T11:25:26.3453522Z [INFO] Once installed this environment will be reused.
+2026-11-13T11:25:26.3453863Z [INFO] This may take a few minutes...
+2026-11-13T11:25:29.8169788Z [INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-11-13T11:25:29.8170239Z [INFO] Once installed this environment will be reused.
+2026-11-13T11:25:29.8170430Z [INFO] This may take a few minutes...
+2026-11-13T11:25:32.0964365Z [INFO] Installing environment for https://github.com/crate-ci/typos.
+2026-11-13T11:25:32.0964812Z [INFO] Once installed this environment will be reused.
+2026-11-13T11:25:32.0965045Z [INFO] This may take a few minutes...
+2026-11-13T11:25:34.3408320Z [INFO] Installing environment for https://github.com/pre-commit/mirrors-clang-format.
+2026-11-13T11:25:34.3408799Z [INFO] Once installed this environment will be reused.
+2026-11-13T11:25:34.3409045Z [INFO] This may take a few minutes...
+2026-11-13T11:25:36.4497568Z ruff (legacy alias)......................................................Passed
+2026-11-13T11:25:36.4824434Z ruff format..............................................................Passed
+2026-11-13T11:25:36.5123887Z check for merge conflicts................................................Passed
+2026-11-13T11:25:36.5124241Z check yaml...........................................(no files to check)Skipped
+2026-11-13T11:25:36.5380245Z fix end of files.........................................................Passed
+2026-11-13T11:25:36.5636522Z fix utf-8 byte order marker..............................................Passed
+2026-11-13T11:25:36.5887988Z trim trailing whitespace.................................................Passed
+2026-11-13T11:25:36.6125426Z mixed line ending........................................................Passed
+2026-11-13T11:25:36.6316564Z typos....................................................................Passed
+2026-11-13T11:25:36.6316993Z clang-format.........................................(no files to check)Skipped
+2026-11-13T11:25:36.6599858Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T11:25:36.6600106Z with:
+2026-11-13T11:25:36.6600299Z   name: cpu-blockwise-metadata-evidence
+2026-11-13T11:25:36.6600697Z   path: before.log
+before.xml
+after.log
+after.xml
+existing.log
+existing.xml
+validation_result.json
+
+2026-11-13T11:25:36.6601094Z   if-no-files-found: warn
+2026-11-13T11:25:36.6601294Z   compression-level: 6
+2026-11-13T11:25:36.6601482Z   overwrite: false
+2026-11-13T11:25:36.6601675Z   include-hidden-files: false
+2026-11-13T11:25:36.6601877Z env:
+2026-11-13T11:25:36.6602038Z   BNB_TEST_DEVICE: cpu
+2026-11-13T11:25:36.6602231Z   OMP_NUM_THREADS: 2
+2026-11-13T11:25:36.6602371Z   PYTHONPATH: .
+2026-11-13T11:25:36.6602542Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:36.6602780Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:25:36.6603009Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:36.6603237Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:36.6603442Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:25:36.6603651Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:25:36.6603854Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:25:36.6604015Z ##[endgroup]
+2026-11-13T11:25:36.7795496Z (node:2862) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:25:36.7796407Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:25:36.7869921Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T11:25:36.7877612Z The least common ancestor is /home/runner/work/bitsandbytes/bitsandbytes. This will be the root directory of the artifact
+2026-11-13T11:25:36.7878487Z With the provided path, there will be 7 files uploaded
+2026-11-13T11:25:36.7879168Z Artifact name is valid!
+2026-11-13T11:25:36.7879573Z Root directory input is valid!
+2026-11-13T11:25:37.0696358Z Beginning upload of artifact content to blob storage
+2026-11-13T11:25:37.0929067Z (node:2862) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:25:37.2234297Z Uploaded bytes 9461
+2026-11-13T11:25:37.2612307Z Finished uploading artifact content to blob storage!
+2026-11-13T11:25:37.2612950Z SHA256 digest of uploaded artifact zip is 934c92694f619439c149c979ffc418beb3113e5fd0d23ceea7300c59b2632ab1
+2026-11-13T11:25:37.2614037Z Finalizing artifact upload
+2026-11-13T11:25:37.6201224Z Artifact cpu-blockwise-metadata-evidence.zip successfully finalized. Artifact ID 14032660851
+2026-11-13T11:25:37.6202346Z Artifact cpu-blockwise-metadata-evidence has been successfully uploaded! Final size is 9461 bytes. Artifact ID is 14032660851
+2026-11-13T11:25:37.6207063Z Artifact download URL: https://github.com/Afloat16/bitsandbytes/actions/runs/43416652893/artifacts/14032660851
+2026-11-13T11:25:37.7118509Z Post job cleanup.
+2026-11-13T11:25:37.8056413Z Pruning cache...
+2026-11-13T11:25:37.8065849Z (node:2874) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:25:37.8066275Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:25:37.8131561Z [command]/opt/hostedtoolcache/uv/0.13.8/x86_64/uv cache prune --ci
+2026-11-13T11:25:37.8224065Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:25:38.0478191Z Removed 18633 files (2.2MiB)
+2026-11-13T11:25:38.0500001Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:25:38.0608521Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/bitsandbytes/bitsandbytes --files-from manifest.txt --use-compress-program zstdmt
+2026-11-13T11:25:38.2380045Z (node:2874) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:25:38.6155956Z Sent 2058123 of 2058123 (100.0%), 5.1 MBs/sec
+2026-11-13T11:25:38.7439086Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-80fc3f08dabef7d925837b9625d05e3c98fc60f942ee99c11ba386d9b6dd5b7e
+2026-11-13T11:25:38.8509577Z Post job cleanup.
+2026-11-13T11:25:38.9391369Z (node:2897) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:25:38.9391831Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:25:38.9730115Z Post job cleanup.
+2026-11-13T11:25:39.0354843Z [command]/usr/bin/git version
+2026-11-13T11:25:39.0386104Z git version 2.56.1
+2026-11-13T11:25:39.0412775Z Temporarily overriding HOME='/home/runner/work/_temp/7e807dc1-2926-438b-aad0-8482cb2e821a' before making global git config changes
+2026-11-13T11:25:39.0413523Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:25:39.0416423Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/bitsandbytes/bitsandbytes
+2026-11-13T11:25:39.0459326Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:25:39.0501272Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:25:39.0730374Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:25:39.0768604Z http.https://github.com/.extraheader
+2026-11-13T11:25:39.0771999Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T11:25:39.0813232Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:25:39.1074153Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:25:39.1116642Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:25:39.1519245Z Cleaning up orphan processes
+2026-11-13T11:25:39.1790897Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

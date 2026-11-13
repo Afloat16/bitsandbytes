@@ -1,0 +1,87 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "stars": 8538,
+  "archived": false,
+  "default_branch": "main",
+  "fork": "Afloat16/bitsandbytes",
+  "base_commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "merged_at": null,
+  "counts_as_upstream_merged": false,
+  "pr_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2140",
+  "pr_status": "open",
+  "draft": true,
+  "commit": "11527a20279abe05140c9c154eefedba854acbdb",
+  "branch": "fix/cpu-blockwise-metadata-strides-20261113",
+  "title": "Respect metadata strides in CPU blockwise quantization",
+  "body": "## Problem\n\nThe native CPU blockwise kernels read codebook and absmax pointers as contiguous float arrays. A valid strided codebook or scale tensor therefore produces different values from its contiguous copy. This also affects restored quantized weights and CPU Adam8bit state whose metadata is stored in views.\n\n## Changes\n\nMake the codebook contiguous before CPU quantization, and make the codebook and scales contiguous before CPU dequantization. These are local kernel arguments: caller tensors and QuantState metadata retain their original values, storage and identity. Already contiguous metadata, including nonzero storage offsets, keeps the existing path.\n\nAdd tests for FP16, BF16 and FP32, strided/offset metadata, partial blocks, caller-provided quantization outputs, saved quantized weights used in a linear layer, and four actual Adam8bit training steps.\n\n## Validation\n\n[Native CPU source build and tests](https://github.com/Afloat16/bitsandbytes/actions/runs/43416652893), source `11527a20279abe05140c9c154eefedba854acbdb`:\n\n- Original source: 22 failed, 9 passed.\n- Patched source: all 31 new cases passed.\n- Existing CPU blockwise and noncontiguous-input coverage: 33 passed, 9 existing CPU skips.\n- Repository pre-commit hooks and `git diff --check` passed.\n\nUbuntu 24.04, Python 3.12, PyTorch 2.14.0+cpu. Built the repository's native CPU extension with CMake; no replacement kernel or numerical stub was used. The tests compare actual encoded values, decoded values, saved-weight linear outputs and optimizer continuation.\n\nThis is limited to CPU blockwise metadata handling. The existing LUT discretization and unsupported CPU `dequantize_blockwise.out` overload are unchanged; final fixtures exercise exact interior values and the supported dequantization entry point. GPU execution and model-quality improvements are not claimed.\n",
+  "prefilled_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/compare/main...Afloat16:bitsandbytes:fix/cpu-blockwise-metadata-strides-20261113?expand=1&title=Respect%20metadata%20strides%20in%20CPU%20blockwise%20quantization&body=%23%23%20Problem%0A%0AThe%20native%20CPU%20blockwise%20kernels%20read%20codebook%20and%20absmax%20pointers%20as%20contiguous%20float%20arrays.%20A%20valid%20strided%20codebook%20or%20scale%20tensor%20therefore%20produces%20different%20values%20from%20its%20contiguous%20copy.%20This%20also%20affects%20restored%20quantized%20weights%20and%20CPU%20Adam8bit%20state%20whose%20metadata%20is%20stored%20in%20views.%0A%0A%23%23%20Changes%0A%0AMake%20the%20codebook%20contiguous%20before%20CPU%20quantization%2C%20and%20make%20the%20codebook%20and%20scales%20contiguous%20before%20CPU%20dequantization.%20These%20are%20local%20kernel%20arguments%3A%20caller%20tensors%20and%20QuantState%20metadata%20retain%20their%20original%20values%2C%20storage%20and%20identity.%20Already%20contiguous%20metadata%2C%20including%20nonzero%20storage%20offsets%2C%20keeps%20the%20existing%20path.%0A%0AAdd%20tests%20for%20FP16%2C%20BF16%20and%20FP32%2C%20strided%2Foffset%20metadata%2C%20partial%20blocks%2C%20caller-provided%20quantization%20outputs%2C%20saved%20quantized%20weights%20used%20in%20a%20linear%20layer%2C%20and%20four%20actual%20Adam8bit%20training%20steps.%0A%0A%23%23%20Validation%0A%0A%5BNative%20CPU%20source%20build%20and%20tests%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2Fbitsandbytes%2Factions%2Fruns%2F43416652893)%2C%20source%20%6011527a20279abe05140c9c154eefedba854acbdb%60%3A%0A%0A-%20Original%20source%3A%2022%20failed%2C%209%20passed.%0A-%20Patched%20source%3A%20all%2031%20new%20cases%20passed.%0A-%20Existing%20CPU%20blockwise%20and%20noncontiguous-input%20coverage%3A%2033%20passed%2C%209%20existing%20CPU%20skips.%0A-%20Repository%20pre-commit%20hooks%20and%20%60git%20diff%20--check%60%20passed.%0A%0AUbuntu%2024.04%2C%20Python%203.12%2C%20PyTorch%202.14.0%2Bcpu.%20Built%20the%20repository's%20native%20CPU%20extension%20with%20CMake%3B%20no%20replacement%20kernel%20or%20numerical%20stub%20was%20used.%20The%20tests%20compare%20actual%20encoded%20values%2C%20decoded%20values%2C%20saved-weight%20linear%20outputs%20and%20optimizer%20continuation.%0A%0AThis%20is%20limited%20to%20CPU%20blockwise%20metadata%20handling.%20The%20existing%20LUT%20discretization%20and%20unsupported%20CPU%20%60dequantize_blockwise.out%60%20overload%20are%20unchanged%3B%20final%20fixtures%20exercise%20exact%20interior%20values%20and%20the%20supported%20dequantization%20entry%20point.%20GPU%20execution%20and%20model-quality%20improvements%20are%20not%20claimed.%0A",
+  "novelty": {
+    "classification": "genuinely-new",
+    "cpu_history_entries": 19,
+    "actual_patches_read": [
+      1996,
+      1859,
+      1901
+    ],
+    "related_exclusions": {
+      "1859": "CUDA input contiguity, likewise only A",
+      "1901": "CPU optimizers call the same raw-pointer blockwise kernels; no metadata-stride normalization",
+      "1996": "Makes only the A input contiguous for CPU blockwise operations, not codebook/scale metadata"
+    },
+    "all_state_queries": [
+      "codebook contiguous",
+      "codebook stride",
+      "code contiguous",
+      "absmax contiguous",
+      "quantize_blockwise metadata",
+      "absmax stride",
+      "codebook"
+    ],
+    "personal_fork": "15 branches inspected; all eight existing contribution heads/PRs are independent current-task fixes; no prior blockwise metadata-stride repair."
+  },
+  "validation": {
+    "run_id": 43416652893,
+    "run_url": "https://github.com/Afloat16/bitsandbytes/actions/runs/43416652893",
+    "job_id": 131856139389,
+    "artifact_id": 14032660851,
+    "conclusion": "success",
+    "source_commit": "11527a20279abe05140c9c154eefedba854acbdb",
+    "validation_commit": "edead58fb0de6a5af175a41beb17d5616d5c1d07",
+    "environment": "Ubuntu 24.04; Python 3.12; PyTorch 2.14.0+cpu; official CMake CPU source extension",
+    "before": {
+      "failed": 22,
+      "passed": 9
+    },
+    "after": {
+      "passed": 31
+    },
+    "existing": {
+      "passed": 33,
+      "skipped": 9
+    },
+    "checks": [
+      "repository pre-commit hooks",
+      "git diff --check"
+    ],
+    "native_sha256": "0a40255502eb4d55b3cf516267d01305170ec5f697d7cfb77e31605f842ed687",
+    "initial_fixture_diagnostics": "First run also encountered existing LUT approximation and unavailable CPU dequantize_blockwise.out; final exact interior fixtures and supported output path were rerun on both revisions."
+  },
+  "source_files": [
+    "bitsandbytes/backends/cpu/ops.py",
+    "tests/test_cpu_blockwise_metadata.py"
+  ],
+  "limitations": [
+    "CPU only; no GPU validation.",
+    "Known LUT approximation and missing CPU dequantize_blockwise.out are outside scope."
+  ],
+  "draft_reason": "The repository permits at most five open non-draft PRs per contributor; additional contributions are submitted as drafts.",
+  "pr_number": 2140,
+  "publication": {
+    "method": "GitHub browser after connector permission failure",
+    "head_verified": "11527a20279abe05140c9c154eefedba854acbdb",
+    "title_verified": true,
+    "body_verified": true,
+    "maintainer_can_modify": false,
+    "verified_at": "2026-11-13T11:32:58.239Z"
+  }
+}
