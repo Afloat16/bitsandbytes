@@ -1,0 +1,41 @@
+{
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "fork": "Afloat16/bitsandbytes",
+  "stars": 8538,
+  "archived": false,
+  "default_branch": "main",
+  "base_commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "base_tree": "b624ef19f595f97f77fd099f4244b739908d8e97",
+  "commit": "229715336ad8ec8a17dd546821843a9909ab5f73",
+  "branch": "fix/cpu-blockwise-metadata-strides-20261113",
+  "files": [
+    "bitsandbytes/backends/cpu/ops.py",
+    "tests/test_cpu_blockwise_metadata.py"
+  ],
+  "status": "awaiting_native_validation",
+  "novelty": {
+    "classification": "genuinely-new",
+    "cpu_history_entries": 19,
+    "actual_patches_read": [
+      1996,
+      1859,
+      1901
+    ],
+    "related_exclusions": {
+      "1859": "CUDA input contiguity, likewise only A",
+      "1901": "CPU optimizers call the same raw-pointer blockwise kernels; no metadata-stride normalization",
+      "1996": "Makes only the A input contiguous for CPU blockwise operations, not codebook/scale metadata"
+    },
+    "all_state_queries": [
+      "codebook contiguous",
+      "codebook stride",
+      "code contiguous",
+      "absmax contiguous",
+      "quantize_blockwise metadata",
+      "absmax stride",
+      "codebook"
+    ],
+    "personal_fork": "15 branches inspected; all eight existing contribution heads/PRs are independent current-task fixes; no prior blockwise metadata-stride repair."
+  },
+  "scope": "CPU native 8-bit blockwise codebook and scale inputs, including actual Adam8bit state updates"
+}
